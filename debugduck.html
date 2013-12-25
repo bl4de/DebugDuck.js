@@ -18,6 +18,14 @@
     var j = 123;
     dd.sp("Value of 'j' : ").ss("background-color: #0f0; color: #faa;").p(j);
 
+    var _warning_ = "Some warning";
+    dd.setprefix(" WARNING !!! ", "warn").setstyle("background-color: #FF9933; color:#eee", "warn");
+    dd.p(_warning_, "warn");
+
+    var _error_ = "Some error";
+    dd.setprefix(" ERROR !!! ", "err").setstyle("background-color: #f24; color:#eee", "err");
+    dd.p(_error_, "err");
+
 
 </script>
 </body>

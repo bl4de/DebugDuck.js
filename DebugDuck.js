@@ -28,45 +28,54 @@
 
                 // ########     Duck's intestines   ###########
                 
+                // types of console messages
+                types: {
+                    "log" : "log",
+                    "warn" : "warn",
+                    "Warrning" : "warn",
+                    "err" : "error",
+                    "error" : "error"
+                },
+
                 // prefix 
-                prefix: '',
+                prefix: {},
 
                 // styles for output
-                style: '',
+                style: {},
 
                 // default background color
-                defBgColor: '#a0a0a0',
+                defBgColor: '#FFFF00',
 
                 // default text color
-                defColor: '#fafafa',
+                defColor: '#2E2E2E',
 
                 // 'DebugDuck says' style
-                ddStyle: 'background-color: #f00; color: #fff; font-size:10px; border: 1px solid #c00;',
+                ddStyle: 'background-color: #868A08; color: #fff; font-size:10px; border: 1px solid #868A08;',
 
                 // timer style:
-                timerStyle: 'background-color: #fee; color: #c00; font-size:10px; border: 1px solid #c00;',
+                timerStyle: 'background-color: #fee; color: #111; font-size:10px; border: 1px solid #868A08;',
 
                 
                 // ########     Duck's interface   ###########
 
                 // prefix setter
                 // alias: dd.sp(prefix)
-                setprefix: function(prefix) {
-                    this.prefix = prefix;
+                setprefix: function(prefix, type) {
+                    this.prefix[ this.types[type] || "log" ] = prefix;
                     return this;
                 },
 
                 // output style definition
                 // alias: dd.ss(style)
-                setstyle: function(style) {
-                    this.style = style || 'background-color: ' + this.defBgColor + '; color: '  + this.defColor;
+                setstyle: function(style, type) {
+                    this.style[ this.types[type] || "log" ] = style || 'background-color: ' + this.defBgColor + '; color: '  + this.defColor;
                     return this;
                 },
 
                 // display variable value - wrapper for console.log()
                 // alias: dd.p(value)
-                printvar: function(value) {
-                    this.__formatAndPrint(value);
+                printvar: function(value, type) {
+                    this.__formatAndPrint(value, type);
                     return this;
                 },
 
@@ -81,15 +90,17 @@
                 },
 
                 // format output for console.log() using settings
-                __formatAndPrint: function(value) {
-                    var __output = '';
-                    if (this.prefix) {
-                        __output = this.prefix + __output;
+                __formatAndPrint: function(value, type) {
+                    var __output = '',
+                        __type = this.types[type] || "log" ;
+
+                    if (this.prefix[__type]) {
+                        __output = this.prefix[__type] + __output;
                     }
 
                     __output += ' ' + value;
-                    console.log( "%c" + this.timer() + "%c DebugDuck says:%c " + __output + " ", 
-                        this.timerStyle, this.ddStyle, this.style );
+                    console[__type]( "%c" + this.__timer() + "%c DebugDuck says:%c " + __output + " ", 
+                        this.timerStyle, this.ddStyle, this.style[__type] );
                 }
 
 

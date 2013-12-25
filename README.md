@@ -31,7 +31,7 @@ Methods
 Sets prefix for output in console:
 
 ```javascript
-dd.setrpefix("output is: ");
+dd.setprefix("output is: ");
 ```
 **setstyle(style)**
 
@@ -42,6 +42,6 @@ dd.setstyle("color: #f00;");
 ```
 **printvar(value)**
 
-Equal to 'console.log(value)'. Output will be formatted using setting from setstyle() and setprefix(), or default Duck's settings (see DebigDuck.js, definitions of defBgColor, defColor, ddStyle, timerStyle)
+Equal to 'console.log(value)'. Output will be formatted using settings from setstyle() and setprefix(), or default Duck's settings (see DebigDuck.js, definitions of defBgColor, defColor, ddStyle, timerStyle)
 
 
