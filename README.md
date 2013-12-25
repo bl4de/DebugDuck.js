@@ -26,22 +26,26 @@ Usage
 Methods
 -------
 
-**setprefix(prefix)**
+**setprefix(prefix, type)**
 
 Sets prefix for output in console:
 
 ```javascript
-dd.setprefix("output is: ");
+dd.setprefix("output is: ", "warn");
 ```
-**setstyle(style)**
+**setstyle(style, type)**
 
 Sets style for output string. 'style' must be a valid CSS syntax string
 
 ```javascript
-dd.setstyle("color: #f00;");
+dd.setstyle("color: #f00;", "error");
 ```
-**printvar(value)**
+**printvar(value, type)**
 
-Equal to 'console.log(value)'. Output will be formatted using settings from setstyle() and setprefix(), or default Duck's settings (see DebigDuck.js, definitions of defBgColor, defColor, ddStyle, timerStyle)
+Equal to 'console.log(value)'. Output will be formatted using settings from setstyle() and setprefix(), or default Duck's settings (see DebigDuck.js, definitions of defBgColor, defColor, ddStyle, timerStyle).
+
+'Type' indicates what type of console message should be displayed (values corresponding to console types: log, warn or error)
+console.log is default.
+
 
 
