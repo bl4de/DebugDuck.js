@@ -25,6 +25,9 @@
         } else {
             // definition of DebugDuck object
             var DebugDuck = {
+
+                // ########     Duck's intestines   ###########
+                
                 // prefix 
                 prefix: '',
 
@@ -38,7 +41,13 @@
                 defColor: '#fafafa',
 
                 // 'DebugDuck says' style
-                ddStyle: 'background-color: #f00; color: #fff;',
+                ddStyle: 'background-color: #f00; color: #fff; font-size:10px; border: 1px solid #c00;',
+
+                // timer style:
+                timerStyle: 'background-color: #fee; color: #c00; font-size:10px; border: 1px solid #c00;',
+
+                
+                // ########     Duck's interface   ###########
 
                 // prefix setter
                 // alias: dd.sp(prefix)
@@ -61,6 +70,16 @@
                     return this;
                 },
 
+                // ########     Duck's inner methods   ###########
+
+                // set timer for output
+                __timer: function() {
+                    var output = new Date();
+
+                    return '\u238b ' + output.getHours() + ":" + output.getMinutes() + ":" 
+                    + output.getSeconds() + "." + output.getMilliseconds();
+                },
+
                 // format output for console.log() using settings
                 __formatAndPrint: function(value) {
                     var __output = '';
@@ -69,7 +88,8 @@
                     }
 
                     __output += ' ' + value;
-                    console.log("%c DebugDuck says:%c " + __output + " ", this.ddStyle, this.style );
+                    console.log( "%c" + this.timer() + "%c DebugDuck says:%c " + __output + " ", 
+                        this.timerStyle, this.ddStyle, this.style );
                 }
 
 
