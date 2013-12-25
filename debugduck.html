@@ -16,7 +16,7 @@
 
     // with aliases:
     var j = 123;
-    dd.sp("Value of 'j' : ").ss("background-color: #0f0; color: #faa;").p(j);
+    dd.sp("Value of 'j' : ").ss("background-color: #cea; color: #1a1a1e;").p(j);
 
     var _warning_ = "Some warning";
     dd.setprefix(" WARNING !!! ", "warn").setstyle("background-color: #FF9933; color:#eee", "warn");
@@ -26,6 +26,20 @@
     dd.setprefix(" ERROR !!! ", "err").setstyle("background-color: #f24; color:#eee", "err");
     dd.p(_error_, "err");
 
+    // grouping
+    var TestArray = [1,2,3,4,5];
+
+    
+
+    var iterator = function(element) {
+        dd.p(element);
+    };
+
+    // start grup with caption "TestArray elements", then show each of TestArray element
+    dd.sp("TestArray element: ").g("TestArray array elements:");
+        TestArray.forEach( iterator );  
+    // end group  
+    dd.ge();
 
 </script>
 </body>

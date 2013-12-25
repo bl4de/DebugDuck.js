@@ -2,6 +2,9 @@ DebugDuck.js
 ============
 
 Simple wrapper for console object functions.
+Reference of 'console' - see:
+https://developers.google.com/chrome-developer-tools/docs/console
+
 
 After including DebugDuck.js into project, you can use dd object:
 ```javascript
@@ -23,15 +26,19 @@ After including DebugDuck.js into project, you can use dd object:
 Usage
 =====
 
-Methods
--------
+Basic methods
+-------------
 
 **setprefix(prefix, type)**
 
 Sets prefix for output in console:
 
 ```javascript
+// standard usage
 dd.setprefix("output is: ", "warn");
+
+// alias
+dd.sp("output is: ", "warn")
 ```
 **setstyle(style, type)**
 
@@ -47,5 +54,26 @@ Equal to 'console.log(value)'. Output will be formatted using settings from sets
 'Type' indicates what type of console message should be displayed (values corresponding to console types: log, warn or error)
 console.log is default.
 
+Grouping
+--------
 
+**group(groupname)**
+
+**groupend()**
+
+Groups output. Example:
+
+```javascript
+
+    var iterator = function(element) {
+        dd.p(element);
+    };
+
+    // start grup with caption "TestArray elements", then show each of TestArray element
+    dd.sp("TestArray element: ").g("TestArray array elements:");
+        TestArray.forEach( iterator );  
+    // end group  
+    dd.ge();
+
+```
 

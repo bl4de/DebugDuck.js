@@ -79,6 +79,17 @@
                     return this;
                 },
 
+                // grouping output
+                group: function(groupname) {
+                    console.group(groupname);
+                    return this;
+                },
+
+                groupend: function() {
+                    console.groupEnd();
+                    return this;
+                },
+
                 // ########     Duck's inner methods   ###########
 
                 // set timer for output
@@ -110,6 +121,9 @@
             DebugDuck.ss = DebugDuck.setstyle;
             DebugDuck.sp = DebugDuck.setprefix;
             DebugDuck.p = DebugDuck.printvar;
+            DebugDuck.g = DebugDuck.group;
+            DebugDuck.ge = DebugDuck.groupend;
+
 
             // asigned to global as 'dd':
             g.dd = DebugDuck;
