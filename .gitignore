@@ -1,0 +1,14 @@
+.idea
+idea/*
+node_modules
+bower_components
+components
+build
+tmp
+releases
+sass-cache
+npm-debug.log
+*.sublime-project
+*.sublime-workspace
+.DS_Store
+.ds_store

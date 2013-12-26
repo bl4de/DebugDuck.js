@@ -77,3 +77,7 @@ Groups output. Example:
 
 ```
 
+Timing functions
+================
+
+
