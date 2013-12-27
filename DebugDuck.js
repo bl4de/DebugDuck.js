@@ -27,14 +27,14 @@
             var DebugDuck = {
 
                 // ########     Duck's intestines   ###########
-                
+
                 // types of console messages
                 types: {
-                    "log" : "log",
-                    "warn" : "warn",
-                    "Warrning" : "warn",
-                    "err" : "error",
-                    "error" : "error"
+                    "log": "log",
+                    "warn": "warn",
+                    "Warrning": "warn",
+                    "err": "error",
+                    "error": "error"
                 },
 
                 // prefix 
@@ -55,20 +55,20 @@
                 // timer style:
                 timerStyle: 'background-color: #fee; color: #111; font-size:10px; border: 1px solid #868A08;',
 
-                
+
                 // ########     Duck's interface   ###########
 
                 // prefix setter
                 // alias: dd.sp(prefix)
                 setprefix: function(prefix, type) {
-                    this.prefix[ this.types[type] || "log" ] = prefix;
+                    this.prefix[this.types[type] || "log"] = prefix;
                     return this;
                 },
 
                 // output style definition
                 // alias: dd.ss(style)
                 setstyle: function(style, type) {
-                    this.style[ this.types[type] || "log" ] = style || 'background-color: ' + this.defBgColor + '; color: '  + this.defColor;
+                    this.style[this.types[type] || "log"] = style || 'background-color: ' + this.defBgColor + '; color: ' + this.defColor;
                     return this;
                 },
 
@@ -92,7 +92,7 @@
 
                 timer: function(timername) {
                     if (!timername) {
-                        timername = "timer_" + Math.floor(Math.random(1000)*1000);
+                        timername = "timer_" + Math.floor(Math.random(1000) * 1000);
                     }
                     console.time(timername);
                 },
@@ -112,22 +112,21 @@
                 __timer: function() {
                     var output = new Date();
 
-                    return '\u238b ' + output.getHours() + ":" + output.getMinutes() + ":" 
-                    + output.getSeconds() + "." + output.getMilliseconds();
+                    return '\u238b ' + output.getHours() + ":" + output.getMinutes() + ":" + output.getSeconds() + "." + output.getMilliseconds();
                 },
 
                 // format output for console.log() using settings
                 __formatAndPrint: function(value, type) {
                     var __output = '',
-                        __type = this.types[type] || "log" ;
+                        __type = this.types[type] || "log";
 
                     if (this.prefix[__type]) {
                         __output = this.prefix[__type] + __output;
                     }
 
                     __output += ' ' + value;
-                    console[__type]( "%c" + this.__timer() + "%c DebugDuck says:%c " + __output + " ", 
-                        this.timerStyle, this.ddStyle, this.style[__type] );
+                    console[__type]("%c" + this.__timer() + "%c DebugDuck says:%c " + __output + " ",
+                        this.timerStyle, this.ddStyle, this.style[__type]);
                 }
 
 

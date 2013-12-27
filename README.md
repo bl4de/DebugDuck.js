@@ -72,9 +72,16 @@ Grouping
 
 **group(groupname)**
 
+Starts output group. 'groupname' is a caption og group. Alias: dd.g(groupname)
+
 **groupend()**
 
-Groups output. Example:
+Ends last opened group. 
+Any output between group() and groupend() can be folded (it's standard feature implemented in browser's console).
+
+Alias: dd.ge()
+
+Example:
 
 ```javascript
 
