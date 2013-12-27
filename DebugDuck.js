@@ -90,6 +90,22 @@
                     return this;
                 },
 
+                timer: function(timername) {
+                    if (!timername) {
+                        timername = "timer_" + Math.floor(Math.random(1000)*1000);
+                    }
+                    console.time(timername);
+                },
+
+                timerEnd: function(timername) {
+                    console.timeEnd(timername);
+                },
+
+                table: function(obj) {
+                    console.table(obj);
+                },
+
+
                 // ########     Duck's inner methods   ###########
 
                 // set timer for output
@@ -123,7 +139,9 @@
             DebugDuck.p = DebugDuck.printvar;
             DebugDuck.g = DebugDuck.group;
             DebugDuck.ge = DebugDuck.groupend;
-
+            DebugDuck.ts = DebugDuck.timer;
+            DebugDuck.te = DebugDuck.timerEnd;
+            DebugDuck.t = DebugDuck.table;
 
             // asigned to global as 'dd':
             g.dd = DebugDuck;

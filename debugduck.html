@@ -3,10 +3,10 @@
     <title>DebugDuck playground</title>
 </head>
 <body>
-
+<h4>Debug Duck example usage</h4>
 <script type="text/javascript" src="DebugDuck.js"></script>
 <script>
-    // shortest usage
+    // the shortest usage
     var k = 321;
     dd.p(k);
 
@@ -39,6 +39,30 @@
         TestArray.forEach( iterator );  
     // end group  
     dd.ge();
+
+    // using table
+    var cars = [
+        { "manufacturer" : "Audi", "model" : "RS5", "engine" : "4.2 V8 FSI 450KM"},
+        { "manufacturer" : "Audi", "model" : "R8", "engine" : "6.0 V10 FSI 560KM"},
+        { "manufacturer" : "Audi", "model" : "S5", "engine" : "3.0 V6 Comp. 333KM"},
+        { "manufacturer" : "Audi", "model" : "RS4 B7", "engine" : "4.2 V8 FSI 420KM"}
+    ];
+
+    // dd.t(cars) dumps array of objects as easy to read table:
+    dd.t(cars);
+
+    // time measuring
+    dd.ts("total execution time");
+    for (var k = 0; k <= 10; k++) {
+        dd.ts("iteration " + k + " execution time");
+        for (var i = 0; i<10000000; i++) {
+            // nope
+        }
+
+        dd.te("iteration " + k + " execution time");
+        
+    }
+    dd.te("total execution time");
 
 </script>
 </body>

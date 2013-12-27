@@ -26,6 +26,9 @@ After including DebugDuck.js into project, you can use dd object:
 Usage
 =====
 
+See https://www.dropbox.com/s/ikoowkuha8353z0/dd3.png for example outputs.
+
+
 Basic methods
 -------------
 
@@ -34,18 +37,21 @@ Basic methods
 Sets prefix for output in console:
 
 ```javascript
-// standard usage
-dd.setprefix("output is: ", "warn");
+    // standard usage
+    dd.setprefix("output is: ", "warn");
 
-// alias
-dd.sp("output is: ", "warn")
+    // alias
+    dd.sp("output is: ", "warn")
 ```
 **setstyle(style, type)**
 
 Sets style for output string. 'style' must be a valid CSS syntax string
 
 ```javascript
-dd.setstyle("color: #f00;", "error");
+    dd.setstyle("color: #f00;", "error");
+    
+    // using alias
+    dd.ss("color: #f00;", "error");
 ```
 **printvar(value, type)**
 
@@ -53,6 +59,13 @@ Equal to 'console.log(value)'. Output will be formatted using settings from sets
 
 'Type' indicates what type of console message should be displayed (values corresponding to console types: log, warn or error)
 console.log is default.
+
+You can use alias dd.p(varname) as well.
+
+All methods can be piped:
+```javascript
+    dd.sp("value: ").ss("color:#c00;").p(variable);
+```
 
 Grouping
 --------
@@ -77,7 +90,45 @@ Groups output. Example:
 
 ```
 
-Timing functions
-================
+Time measuring
+==============
+
+**timer(timername)**
+
+Start measuring execution time. 'timername' is an identifier for timer (you can use as many timers as you need).
+Alias: dd.ts(timername)
+
+**timerEnd(timername)**
+Stop measuring execution for particulr timer, indicated by 'timername' (see debugduck.html for example)
+Alias: dd.te(timername)
+
+Because of its special purpose, timer() and timerEnd() can not be piped or styled.
+
+```javascript
+    // time measuring
+    dd.ts("total execution time");
+    for (var k = 0; k <= 10; k++) {
+        dd.ts("iteration " + k + " execution time");
+        for (var i = 0; i<10000000; i++) {
+            // nope
+        }
+
+        dd.te("iteration " + k + " execution time");
+        
+    }
+    dd.te("total execution time");
+```
+
+Display dumped arrays and objects in tables
+===========================================
+
+**table(object)**
+Displays 'object' as table.
+Alias: dd.t(object)
+
+
+
+
+
 
 
