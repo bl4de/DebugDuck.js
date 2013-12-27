@@ -99,10 +99,10 @@ Start measuring execution time. 'timername' is an identifier for timer (you can 
 Alias: dd.ts(timername)
 
 **timerend(timername)**
-Stop measuring execution for particulr timer, indicated by 'timername' (see debugduck.html for example)
+Stop measuring execution for particular timer, indicated by 'timername' (see debugduck.html for example)
 Alias: dd.te(timername)
 
-Because of its special purpose, timer() and timerEnd() can not be piped or styled.
+Because of its special purpose, timer() and timerend() can not be piped or styled.
 
 ```javascript
     // time measuring
