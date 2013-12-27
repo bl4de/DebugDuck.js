@@ -97,7 +97,7 @@
                     console.time(timername);
                 },
 
-                timerEnd: function(timername) {
+                timerend: function(timername) {
                     console.timeEnd(timername);
                 },
 

@@ -98,7 +98,7 @@ Time measuring
 Start measuring execution time. 'timername' is an identifier for timer (you can use as many timers as you need).
 Alias: dd.ts(timername)
 
-**timerEnd(timername)**
+**timerend(timername)**
 Stop measuring execution for particulr timer, indicated by 'timername' (see debugduck.html for example)
 Alias: dd.te(timername)
 
