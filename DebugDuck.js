@@ -11,10 +11,10 @@
     The MIT License (see LICENCE file)
 */
 
-(function (g) {
+(function(g) {
     "use strict";
 
-    functon DebugDuckException(message) {
+    function DebugDuckException(message) {
         this.message = message;
         this.name = "DebugDuckException";
     }
@@ -60,48 +60,48 @@
 
                 // prefix setter
                 // alias: dd.sp(prefix)
-                setprefix: function (prefix, type) {
+                setprefix: function(prefix, type) {
                     this.prefix[this.types[type] || "log"] = prefix;
                     return this;
                 },
 
                 // output style definition
                 // alias: dd.ss(style)
-                setstyle: function (style, type) {
+                setstyle: function(style, type) {
                     this.style[this.types[type] || "log"] = style || 'background-color: ' + this.defBgColor + '; color: ' + this.defColor;
                     return this;
                 },
 
                 // display variable value - wrapper for console.log()
                 // alias: dd.p(value)
-                printvar: function (value, type) {
+                printvar: function(value, type) {
                     this.__formatAndPrint(value, type);
                     return this;
                 },
 
                 // grouping output
-                group: function (groupname) {
+                group: function(groupname) {
                     console.group(groupname);
                     return this;
                 },
 
-                groupend: function () {
+                groupend: function() {
                     console.groupEnd();
                     return this;
                 },
 
-                timer: function (timername) {
+                timer: function(timername) {
                     if (!timername) {
                         timername = "timer_" + Math.floor(Math.random(1000) * 1000);
                     }
                     console.time(timername);
                 },
 
-                timerend: function (timername) {
+                timerend: function(timername) {
                     console.timeEnd(timername);
                 },
 
-                table: function (obj) {
+                table: function(obj) {
                     console.table(obj);
                 },
 
@@ -109,14 +109,14 @@
                 // ########     Duck's inner methods   ###########
 
                 // set timer for output
-                __timer: function () {
+                __timer: function() {
                     var output = new Date();
 
                     return '\u238b ' + output.getHours() + ":" + output.getMinutes() + ":" + output.getSeconds() + "." + output.getMilliseconds();
                 },
 
                 // format output for console.log() using settings
-                __formatAndPrint: function (value, type) {
+                __formatAndPrint: function(value, type) {
                     var __output = '',
                         __type = this.types[type] || "log";
 
