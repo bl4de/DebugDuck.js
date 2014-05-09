@@ -69,6 +69,7 @@
                         __ddDiv.style.borderRadius = "6px";
                         __ddDiv.style.backgroundColor = "#dedede";
 
+
                         g.document.body.insertBefore(__ddDiv);
                         var __initialP = g.document.createElement('p');
                         var __title = g.document.createTextNode('Debug Duck says:');
