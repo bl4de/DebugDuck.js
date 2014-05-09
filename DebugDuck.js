@@ -58,7 +58,7 @@
                 // ########     Duck's initialization   ###########
                 __init: function(g) {
                     if (g.document) {
-                        console.log(g.document);
+                        console.log("document object:" + g.document);
                     } else {
                         console.log("document object doesn't exists");
                     }
@@ -155,6 +155,9 @@
 
             // asigned to global as 'dd':
             g.dd = DebugDuck;
+
+            // call __init
+            DebugDuck.__init(g);
         }
 
     } catch (e) {
