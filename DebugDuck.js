@@ -55,6 +55,14 @@
                 // timer style:
                 timerStyle: 'background-color: #fee; color: #111; font-size:10px; border: 1px solid #868A08;',
 
+                // ########     Duck's initialization   ###########
+                __init: function(g) {
+                    if (g.document) {
+                        console.log(g.document);
+                    } else {
+                        console.log("document object doesn't exists");
+                    }
+                },
 
                 // ########     Duck's interface   ###########
 
@@ -105,6 +113,9 @@
                     console.table(obj);
                 },
 
+                popup: function(value) {
+
+                },
 
                 // ########     Duck's inner methods   ###########
 
@@ -139,7 +150,7 @@
             DebugDuck.g = DebugDuck.group;
             DebugDuck.ge = DebugDuck.groupend;
             DebugDuck.ts = DebugDuck.timer;
-            DebugDuck.te = DebugDuck.timerEnd;
+            DebugDuck.te = DebugDuck.timerend;
             DebugDuck.t = DebugDuck.table;
 
             // asigned to global as 'dd':
