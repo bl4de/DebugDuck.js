@@ -58,9 +58,25 @@
                 // ########     Duck's initialization   ###########
                 __init: function(g) {
                     if (g.document) {
-                        console.log("document object:" + g.document);
+                        var __ddDiv = g.document.createElement('div');
+                        __ddDiv.style.width = "50%";
+                        __ddDiv.style.padding = "10px";
+                        __ddDiv.style.position = "absolute";
+                        __ddDiv.style.top = "20px";
+                        __ddDiv.style.right = "20px";
+                        __ddDiv.style.height = "25%";
+                        __ddDiv.style.border = "2px solid #f00";
+                        __ddDiv.style.borderRadius = "6px";
+                        __ddDiv.style.backgroundColor = "#dedede";
+
+                        g.document.body.insertBefore(__ddDiv);
+                        var __initialP = g.document.createElement('p');
+                        var __title = g.document.createTextNode('Debug Duck says:');
+                        __ddDiv.appendChild(__initialP.appendChild(__title));
+
+
                     } else {
-                        console.log("document object doesn't exists");
+                        this.printvar("document object doesn't exists");
                     }
                 },
 
