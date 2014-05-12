@@ -40,6 +40,9 @@
                 // array where vars are storing for DD window
                 vars: [],
 
+                // show/hide DD window? 
+                showDDWindow: true,
+
                 //event listeneres
                 events: [],
 
@@ -74,6 +77,7 @@
                             self = this;
 
                         // sets styles for DD window
+                        __ddDiv.style.display = (this.showDDWindow === true) ? 'block' : 'none';
                         __ddDiv.style.width = "50%";
                         __ddDiv.style.padding = "10px";
                         __ddDiv.style.position = "absolute";
@@ -113,6 +117,13 @@
                                 }
                             });
                             __ddDiv.appendChild(__varList);
+                        };
+
+                        this.showWindow = function() {
+                            // toggle DD window visibility
+                            self.showDDWindow = !self.showDDWindow;
+                            self.__ddDiv.style.display = (self.showDDWindow === true) ? 'block' : 'none';
+
                         };
 
                         this.attachEvent('UPDATE_WINDOW', this.render);
@@ -195,14 +206,6 @@
                     console.table(obj);
                 },
 
-                // DD window show/hide
-                showWindow: function(value) {
-
-                },
-
-                hideWindow: function(value) {
-
-                },
 
                 // ########     Duck's inner methods   ###########
 
