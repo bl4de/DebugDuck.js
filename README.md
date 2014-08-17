@@ -126,6 +126,12 @@ Because of its special purpose, timer() and timerend() can not be piped or style
     dd.te("total execution time");
 ```
 
+**timestamp([message])**
+Adds timestamp to timeline (Chrome Dev Tools) or prints value to console (Firebug).
+Message is optional.
+
+Alias: dd.ts([message]);
+
 Display dumped arrays and objects in tables
 ===========================================
 
