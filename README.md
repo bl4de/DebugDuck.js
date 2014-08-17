@@ -127,6 +127,8 @@ Because of its special purpose, timer() and timerend() can not be piped or style
 ```
 
 **timestamp([message])**
+
+
 Adds timestamp to timeline (Chrome Dev Tools) or prints value to console (Firebug).
 Message is optional.
 
