@@ -37,6 +37,9 @@
                     "error": "error"
                 },
 
+                // message for mosc functions
+                message: "DebugDuck default message",
+
                 // array where vars are storing for DD window
                 vars: [],
 
@@ -191,6 +194,12 @@
                     return this;
                 },
 
+                timestamp: function(message) {
+                    var message = message ? this.__setMessage(message) : this.message;
+                    console.timeStamp(message);
+                    return this;
+                },
+
                 timer: function(timername) {
                     if (!timername) {
                         timername = "timer_" + Math.floor(Math.random(1000) * 1000);
@@ -208,6 +217,10 @@
 
 
                 // ########     Duck's inner methods   ###########
+
+                __setMessage: function(message) {
+                    this.message = message || this.message;
+                },
 
                 // set timer for output
                 __timer: function() {
@@ -242,6 +255,7 @@
             DebugDuck.ts = DebugDuck.timer;
             DebugDuck.te = DebugDuck.timerend;
             DebugDuck.t = DebugDuck.table;
+            DebugDuck.ts = DebugDuck.timestamp;
 
             // asigned to global as 'dd':
             g.dd = DebugDuck;

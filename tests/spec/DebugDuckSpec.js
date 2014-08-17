@@ -16,4 +16,15 @@ describe("DebugDuck", function() {
         });
 
     });
+
+    describe("dd:timestamp() function test suite", function() {
+        it("timestamp(): message should be 'DebugDuck default message'", function() {
+            dd.ts();
+            expect(dd.message).toEqual("DebugDuck default message");
+        });
+        it("timestamp('test message'): message should be 'test message'", function() {
+            dd.ts("test message");
+            expect(dd.message).toEqual("test message");
+        });
+    });
 });
