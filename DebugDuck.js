@@ -218,6 +218,10 @@
 
                 // ########     Duck's inner methods   ###########
 
+                __onerror: function(message, file, line, col, error) {
+                    console.log(message, file, line, col, error, error.stack);
+                },
+
                 __setMessage: function(message) {
                     this.message = message || this.message;
                 },
@@ -259,6 +263,9 @@
 
             // asigned to global as 'dd':
             g.dd = DebugDuck;
+
+            // stack from Debug Duck
+            g.onerror = this.__onerror;
 
             // call __init
             DebugDuck.__init(g);
