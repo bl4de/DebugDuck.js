@@ -218,8 +218,26 @@
 
                 // ########     Duck's inner methods   ###########
 
+                /*
+                    custom call stack message
+                */
                 __onerror: function(message, file, line, col, error) {
-                    console.log(message, file, line, col, error, error.stack);
+                    console.log("%c-------------------------------------------" +
+                               "-----------------------------------------------"+
+                               "-----------------------------------------------",
+                               "color: #f00;");  // empty line separator
+
+                    console.log("%c  " + message + "  ", "background-color:#ef2d2d; font-weight:bold; color:#fff;");
+                    console.log("%c" + "at " + file + " in line " + line + "; column " + col,
+                                "bakcground-color:#ef2d2d; font-weight:bold; color: #f00;");
+                    console.log("%c STACK TRACE:", "font-weight: bold; background-color: #fff46d;");
+                    console.log("%c" + error.stack,
+                                "background-color: #fff46d; font-weight:normal; color: #f00;");
+                    console.log("%c-------------------------------------------" +
+                               "-----------------------------------------------"+
+                               "-----------------------------------------------",
+                               "color: #f00;");  // empty line separator
+
                 },
 
                 __setMessage: function(message) {
