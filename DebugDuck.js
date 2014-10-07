@@ -282,7 +282,7 @@
             // asigned to global as 'dd':
             g.dd = DebugDuck;
 
-            // stack from Debug Duck
+            // custom call stack handler from Debug Duck
             g.onerror = this.__onerror;
 
             // call __init
