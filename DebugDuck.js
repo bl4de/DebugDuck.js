@@ -194,8 +194,8 @@
                     return this;
                 },
 
-                timestamp: function(message) {
-                    var message = message ? this.__setMessage(message) : this.message;
+                timestamp: function(__message) {
+                    var message = __message ? this.__setMessage(__message) : this.message;
                     console.timeStamp(message);
                     return this;
                 },
