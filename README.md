@@ -22,6 +22,8 @@ After including DebugDuck.js into project, you can use dd object:
     dd.sp("Value of 'j' : ").ss("background-color: #0f0; color: #faa;").p(j);
 ```
 
+DebugDuck.js also implements its own **window.onerror()** handler for more readable error stack trace (with source code line number and column and colored output in console.
+
 
 Usage
 =====
