@@ -228,6 +228,13 @@
                     return this;
                 },
 
+                // clearing the console
+                clear: function() {
+                    console.clear();
+                    return this;
+                },
+
+
                 // ########     Duck's inner methods   ###########
 
                 /*
@@ -291,6 +298,7 @@
             DebugDuck.t = DebugDuck.table;
             DebugDuck.ts = DebugDuck.timestamp;
             DebugDuck.a = DebugDuck.assert;
+            DebugDuck.c = DebugDuck.clear;
 
             // asigned to global as 'dd':
             g.dd = DebugDuck;

@@ -180,6 +180,21 @@ Assertions can be piped as any other DebuckDuck's methods:
 
 ```
 
+Clearing the console
+====================
+
+If you'd like to clear the console, you can use **clear()** method or its alias dd.c().
+clear() is also piped:
+
+```javascript
+    dd.c().sp("Is it clear? ").p("Console cleared");
+    
+    /*
+        result:
+        14:33:3.400 DebugDuck says: Is it clear?  Console cleared  
+    */
+```
+
 Display dumped arrays and objects in tables
 ===========================================
 
