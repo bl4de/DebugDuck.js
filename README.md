@@ -148,17 +148,37 @@ Alias: dd.a(expression, message)
         propA: 10,
         propB: "propB value"
     };
-
+    
+    dd.sp("Result: ");
     dd.a(obj.propA === 10, "'propA' of obj equals 10");
     dd.a(obj.propB === 10, "'propB' of obj equals 10");
 
     /*
         sample output:
-         14:14:13.337 DebugDuck says: TestArray element:  Assertion OK: ['propA' of obj equals 10]
-         14:14:13.337 DebugDuck says: TestArray element:  Assertion FAILED: ['propB' of obj equals 10] NOT PASS 
+         14:14:13.337 DebugDuck says: Result:  Assertion OK: ['propA' of obj equals 10]
+         14:14:13.337 DebugDuck says: Result:  Assertion FAILED: ['propB' of obj equals 10] NOT PASS 
     */
 ```
 
+Assertions can be piped as any other DebuckDuck's methods:
+
+```javascript
+
+    var obj = {
+        propA: 100,
+        propB: "propB value",
+        propC: [1,2,3]
+    };
+    
+    dd.sp("Result: ");
+    
+    // piped assertions:
+    dd.a(obj.propA === 10, "'propA' of obj equals 10")
+        .a(obj.propB === "propB value", "'propB' of obj equals 'propB value'")
+        .a(obj.propC[1] === 5, "'propc[1]' of obj equals 5");
+    
+
+```
 
 Display dumped arrays and objects in tables
 ===========================================

@@ -225,6 +225,7 @@
                         this.setstyle("background-color:#f00; font-weight:bold; color:#eee;");
                         this.__formatAndPrint("Assertion FAILED: [" + message + "] NOT PASS");
                     }
+                    return this;
                 },
 
                 // ########     Duck's inner methods   ###########

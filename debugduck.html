@@ -73,8 +73,22 @@
         propB: "propB value"
     };
 
+    dd.sp("Result: ");
     dd.a(obj.propA === 10, "'propA' of obj equals 10");
     dd.a(obj.propB === 10, "'propB' of obj equals 10");
+
+
+    var obj = {
+        propA: 100,
+        propB: "propB value",
+        propC: [1,2,3]
+    };
+
+    dd.sp("Result: ");
+    dd.a(obj.propA === 100, "'propA' of obj equals 100")
+        .a(obj.propB === "propB value", "'propB' of obj equals 'propB value'")
+        .a(obj.propC[1] === 5, "'propc[1]' of obj equals 5");
+
 </script>
 </body>
 </html>
