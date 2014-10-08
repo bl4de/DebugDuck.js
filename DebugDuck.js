@@ -11,7 +11,7 @@
     The MIT License (see LICENCE file)
 */
 
-(function(g) {
+(function (g) {
     "use strict";
 
     function DebugDuckException(message) {
@@ -68,7 +68,7 @@
                 timerStyle: 'background-color: #fee; color: #111; font-size:10px; border: 1px solid #868A08;',
 
                 // ########     Duck's initialization   ###########
-                __init: function(g) {
+                __init: function (g) {
                     if (g.document) {
                         // save references to interesting DOM objects :)
                         var _document = g.document,
@@ -98,10 +98,10 @@
                         __ddDiv.appendChild(__initialP);
 
                         // recursive display stored vars with updating
-                        this.render = function() {
+                        this.render = function () {
                             // cleanup window first
                             // __ddDiv.removeChild(__varList);
-                            self.vars.forEach(function(v) {
+                            self.vars.forEach(function (v) {
                                 if (!v.rendered) {
                                     var _varDiv = _document.createElement('div'),
                                         _varValue = _document.createTextNode(v.value);
@@ -122,7 +122,7 @@
                             __ddDiv.appendChild(__varList);
                         };
 
-                        this.showWindow = function() {
+                        this.showWindow = function () {
                             // toggle DD window visibility
                             self.showDDWindow = !self.showDDWindow;
                             self.__ddDiv.style.display = (self.showDDWindow === true) ? 'block' : 'none';
@@ -137,15 +137,15 @@
                 },
 
                 // ########     Event listener     ###########
-                attachEvent: function(evt, callback) {
+                attachEvent: function (evt, callback) {
                     this.events.push({
                         eventName: evt,
                         eventCallback: callback
                     });
                 },
 
-                triggerEvent: function(evt) {
-                    this.events.forEach(function(e) {
+                triggerEvent: function (evt) {
+                    this.events.forEach(function (e) {
                         if (e.eventName === evt) {
                             e.eventCallback();
                         }
@@ -156,21 +156,22 @@
 
                 // prefix setter
                 // alias: dd.sp(prefix)
-                setprefix: function(prefix, type) {
+                setprefix: function (prefix, type) {
                     this.prefix[this.types[type] || "log"] = prefix;
                     return this;
                 },
 
                 // output style definition
                 // alias: dd.ss(style)
-                setstyle: function(style, type) {
+                setstyle: function (style, type) {
                     this.style[this.types[type] || "log"] = style || 'background-color: ' + this.defBgColor + '; color: ' + this.defColor;
                     return this;
                 },
 
+
                 // display variable value - wrapper for console.log()
                 // alias: dd.p(value)
-                printvar: function(value, type) {
+                printvar: function (value, type) {
                     this.vars.push({
                         value: value,
                         type: type,
@@ -184,75 +185,85 @@
                 },
 
                 // grouping output
-                group: function(groupname) {
+                group: function (groupname) {
                     console.group(groupname);
                     return this;
                 },
 
-                groupend: function() {
+                groupend: function () {
                     console.groupEnd();
                     return this;
                 },
 
-                timestamp: function(__message) {
+                timestamp: function (__message) {
                     var message = __message ? this.__setMessage(__message) : this.message;
                     console.timeStamp(message);
                     return this;
                 },
 
-                timer: function(timername) {
+                timer: function (timername) {
                     if (!timername) {
                         timername = "timer_" + Math.floor(Math.random(1000) * 1000);
                     }
                     console.time(timername);
                 },
 
-                timerend: function(timername) {
+                timerend: function (timername) {
                     console.timeEnd(timername);
                 },
 
-                table: function(obj) {
+                table: function (obj) {
                     console.table(obj);
                 },
 
+                // console.assert ?
+                assert: function (exp, message) {
+                    if (exp) {
+                        this.setstyle("background-color:#1bad1b; font-weight:bold; color:#fff;");
+                        this.__formatAndPrint("Assertion OK: [" + message + "]");
+                    } else {
+                        this.setstyle("background-color:#f00; font-weight:bold; color:#eee;");
+                        this.__formatAndPrint("Assertion FAILED: [" + message + "] NOT PASS");
+                    }
+                },
 
                 // ########     Duck's inner methods   ###########
 
                 /*
                     custom call stack message
                 */
-                __onerror: function(message, file, line, col, error) {
+                __onerror: function (message, file, line, col, error) {
                     console.log("%c-------------------------------------------" +
-                               "-----------------------------------------------"+
-                               "-----------------------------------------------",
-                               "color: #f00;");  // empty line separator
+                        "-----------------------------------------------" +
+                        "-----------------------------------------------",
+                        "color: #f00;"); // empty line separator
 
                     console.log("%c  " + message + "  ", "background-color:#ef2d2d; font-weight:bold; color:#fff;");
                     console.log("%c" + "at " + file + " in line " + line + "; column " + col,
-                                "bakcground-color:#ef2d2d; font-weight:bold; color: #f00;");
+                        "bakcground-color:#ef2d2d; font-weight:bold; color: #f00;");
                     console.log("%c STACK TRACE:", "font-weight: bold; background-color: #fff46d;");
                     console.log("%c" + error.stack,
-                                "background-color: #fff46d; font-weight:normal; color: #f00;");
+                        "background-color: #fff46d; font-weight:normal; color: #f00;");
                     console.log("%c-------------------------------------------" +
-                               "-----------------------------------------------"+
-                               "-----------------------------------------------",
-                               "color: #f00;");  // empty line separator
+                        "-----------------------------------------------" +
+                        "-----------------------------------------------",
+                        "color: #f00;"); // empty line separator
 
                 },
 
-                __setMessage: function(message) {
+                __setMessage: function (message) {
                     this.message = message || this.message;
                 },
 
                 // set timer for output
-                __timer: function() {
+                __timer: function () {
                     var output = new Date();
 
                     return '\u238b ' + output.getHours() + ":" + output.getMinutes() + ":" + output.getSeconds() + "." + output.getMilliseconds();
                 },
 
                 // format output for console.log() using settings
-                __formatAndPrint: function(value, type) {
+                __formatAndPrint: function (value, type) {
                     var __output = '',
                         __type = this.types[type] || "log";
 
@@ -278,6 +289,7 @@
             DebugDuck.te = DebugDuck.timerend;
             DebugDuck.t = DebugDuck.table;
             DebugDuck.ts = DebugDuck.timestamp;
+            DebugDuck.a = DebugDuck.assert;
 
             // asigned to global as 'dd':
             g.dd = DebugDuck;

@@ -67,6 +67,14 @@
     }
     dd.te("total execution time");
 
+    // assertions
+    var obj = {
+        propA: 10,
+        propB: "propB value"
+    };
+
+    dd.a(obj.propA === 10, "'propA' of obj equals 10");
+    dd.a(obj.propB === 10, "'propB' of obj equals 10");
 </script>
 </body>
 </html>

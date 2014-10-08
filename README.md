@@ -136,6 +136,30 @@ Message is optional.
 
 Alias: dd.ts([message]);
 
+
+Assertions (simple testing methods)
+===================================
+
+You can provide simple assertions using **assert(expression, message)** method.
+Alias: dd.a(expression, message)
+
+```javascript
+    var obj = {
+        propA: 10,
+        propB: "propB value"
+    };
+
+    dd.a(obj.propA === 10, "'propA' of obj equals 10");
+    dd.a(obj.propB === 10, "'propB' of obj equals 10");
+
+    /*
+        sample output:
+         14:14:13.337 DebugDuck says: TestArray element:  Assertion OK: ['propA' of obj equals 10]
+         14:14:13.337 DebugDuck says: TestArray element:  Assertion FAILED: ['propB' of obj equals 10] NOT PASS 
+    */
+```
+
+
 Display dumped arrays and objects in tables
 ===========================================
 
