@@ -2,14 +2,14 @@
 /* global console */
 
 /*
-    DebugDuck.js
+ DebugDuck.js
 
-    @description: simple console() global object wrapper to display debug output via console
-    @author: "Rafal 'bl4de' Janicki",
-    @created: 24.12.2013
+ @description: simple console() global object wrapper to display debug output via console
+ @author: "Rafal 'bl4de' Janicki",
+ @created: 24.12.2013
 
-    The MIT License (see LICENCE file)
-*/
+ The MIT License (see LICENCE file)
+ */
 
 (function (g) {
     "use strict";
@@ -216,6 +216,17 @@
                     console.table(obj);
                 },
 
+                objectAsDir: function(obj) {
+                    // use console.dir() if exists
+                    if (console.hasOwnProperty("dir")) {
+                        console.dir(obj);
+                        return this;
+                    }
+                    // instead, try to format obj in console.log()
+                    console.log("%O", obj);
+                    return this;
+                },
+
                 // console.assert ?
                 assert: function (exp, message) {
                     if (exp) {
@@ -229,7 +240,7 @@
                 },
 
                 // clearing the console
-                clear: function() {
+                clear: function () {
                     console.clear();
                     return this;
                 },
@@ -238,8 +249,8 @@
                 // ########     Duck's inner methods   ###########
 
                 /*
-                    custom call stack message
-                */
+                 custom call stack message
+                 */
                 __onerror: function (message, file, line, col, error) {
                     console.log("%c-------------------------------------------" +
                         "-----------------------------------------------" +
@@ -296,6 +307,7 @@
             DebugDuck.ts = DebugDuck.timer;
             DebugDuck.te = DebugDuck.timerend;
             DebugDuck.t = DebugDuck.table;
+            DebugDuck.d = DebugDuck.objectAsDir;
             DebugDuck.ts = DebugDuck.timestamp;
             DebugDuck.a = DebugDuck.assert;
             DebugDuck.c = DebugDuck.clear;

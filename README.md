@@ -195,12 +195,20 @@ clear() is also piped:
     */
 ```
 
-Display dumped arrays and objects in tables
-===========================================
+Display dumped arrays in tables
+===============================
 
 **table(object)**
 Displays 'object' as table.
-Alias: dd.t(object)
+Alias: dd.t(Array)
+
+Display objects (formatted)
+===========================
+
+**objectAsDir(object)**
+Displays Object using console.dir() if exists, instead uses console.log() with %O formatter.
+
+Alias: dd.d(Object)
 
 
 
