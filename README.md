@@ -184,6 +184,7 @@ Clearing the console
 ====================
 
 If you'd like to clear the console, you can use **clear()** method or its alias dd.c().
+
 clear() is also piped:
 
 ```javascript
@@ -199,13 +200,16 @@ Display dumped arrays in tables
 ===============================
 
 **table(object)**
+
 Displays 'object' as table.
+
 Alias: dd.t(Array)
 
 Display objects (formatted)
 ===========================
 
 **objectAsDir(object)**
+
 Displays Object using console.dir() if exists, instead uses console.log() with %O formatter.
 
 Alias: dd.d(Object)
