@@ -199,7 +199,7 @@ clear() is also piped:
 Display dumped arrays in tables
 ===============================
 
-**table(object)**
+**table(Array)**
 
 Displays 'object' as table.
 
@@ -208,7 +208,7 @@ Alias: dd.t(Array)
 Display objects (formatted)
 ===========================
 
-**objectAsDir(object)**
+**objectAsDir(Object)**
 
 Displays Object using console.dir() if exists, instead uses console.log() with %O formatter.
 
