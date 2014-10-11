@@ -57,7 +57,8 @@ Sets style for output string. 'style' must be a valid CSS syntax string
 ```
 **printvar(value, type)**
 
-Equal to 'console.log(value)'. Output will be formatted using settings from setstyle() and setprefix(), or default Duck's settings (see DebigDuck.js, definitions of defBgColor, defColor, ddStyle, timerStyle).
+Equal to 'console.log(value)'. 
+Output will be formatted using settings from setstyle() and setprefix(), or default Duck's settings (see DebigDuck.js, definitions of defBgColor, defColor, ddStyle, timerStyle).
 
 'Type' indicates what type of console message should be displayed (values corresponding to console types: log, warn or error)
 console.log is default.
@@ -105,10 +106,12 @@ Time measuring
 **timer(timername)**
 
 Start measuring execution time. 'timername' is an identifier for timer (you can use as many timers as you need).
+
 Alias: dd.ts(timername)
 
 **timerend(timername)**
 Stop measuring execution for particular timer, indicated by 'timername' (see debugduck.html for example)
+
 Alias: dd.te(timername)
 
 Because of its special purpose, timer() and timerend() can not be piped or styled.
