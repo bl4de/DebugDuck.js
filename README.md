@@ -183,15 +183,38 @@ Assertions can be piped as any other DebuckDuck's methods:
 
 ```
 
+Counter
+=======
+
+You can use **count(counterName)** method to count eg. function calls:
+
+```javascript
+	
+	function fn() {
+		// do something
+		dd.count("fn() called");
+	}
+	
+	for (var i = 0; i < 10; i++) {
+		fn();
+	}
+	
+	// result:
+	// fn() called: 1 
+    // ...
+    // fn() called: 9 
+    // fn() called: 10 
+```
+
 Clearing the console
 ====================
 
-If you'd like to clear the console, you can use **clear()** method or its alias dd.c().
+If you'd like to clear the console, you can use **clear()** method or its alias dd.clr().
 
 clear() is also piped:
 
 ```javascript
-    dd.c().sp("Is it clear? ").p("Console cleared");
+    dd.clr().sp("Is it clear? ").p("Console cleared");
     
     /*
         result:
