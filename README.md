@@ -206,6 +206,12 @@ You can use **count(counterName)** method to count eg. function calls:
     // fn() called: 10 
 ```
 
+count() can be piped.
+
+Alias: dd.c(counterName);
+
+
+
 Clearing the console
 ====================
 
@@ -221,6 +227,10 @@ clear() is also piped:
         14:33:3.400 DebugDuck says: Is it clear?  Console cleared  
     */
 ```
+
+Alias: dd.clr();
+
+
 
 Display dumped arrays in tables
 ===============================
