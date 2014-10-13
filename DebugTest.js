@@ -45,12 +45,12 @@
                 DebugTest.testSuite[__testSuiteName].push(__simpleTest);
             };
 
-            // public interface
             var init = function () {
                 DebugTest.testSuite[__testSuiteName] = [];
                 return this;
             };
 
+            // public interface
             this.addTest = function (__simpleTest) {
                 __addTest(__simpleTest);
                 return this;
