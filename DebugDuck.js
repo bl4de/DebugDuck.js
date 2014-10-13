@@ -245,6 +245,14 @@
                     return this;
                 },
 
+	            // counter
+	            count: function(counterName) {
+		            if (console.count) {
+			            console.count(counterName);
+		            }
+		            return this;
+	            },
+
 
                 // ########     Duck's inner methods   ###########
 
@@ -310,7 +318,9 @@
             DebugDuck.d = DebugDuck.objectAsDir;
             DebugDuck.ts = DebugDuck.timestamp;
             DebugDuck.a = DebugDuck.assert;
-            DebugDuck.c = DebugDuck.clear;
+            DebugDuck.clr = DebugDuck.clear;
+	        DebugDuck.c = DebugDuck.count;
+
 
             // asigned to global as 'dd':
             g.dd = DebugDuck;

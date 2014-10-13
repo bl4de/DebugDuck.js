@@ -28,7 +28,7 @@ DebugDuck.js also implements its own **window.onerror()** handler for more reada
 Usage
 =====
 
-See https://www.dropbox.com/s/ikoowkuha8353z0/dd3.png for example outputs.
+See https://www.dropbox.com/s/hwqjmyrl6wu0vcy/debugduck_new.png for example outputs.
 
 
 Basic methods
@@ -57,7 +57,8 @@ Sets style for output string. 'style' must be a valid CSS syntax string
 ```
 **printvar(value, type)**
 
-Equal to 'console.log(value)'. Output will be formatted using settings from setstyle() and setprefix(), or default Duck's settings (see DebigDuck.js, definitions of defBgColor, defColor, ddStyle, timerStyle).
+Equal to 'console.log(value)'. 
+Output will be formatted using settings from setstyle() and setprefix(), or default Duck's settings (see DebigDuck.js, definitions of defBgColor, defColor, ddStyle, timerStyle).
 
 'Type' indicates what type of console message should be displayed (values corresponding to console types: log, warn or error)
 console.log is default.
@@ -105,10 +106,12 @@ Time measuring
 **timer(timername)**
 
 Start measuring execution time. 'timername' is an identifier for timer (you can use as many timers as you need).
+
 Alias: dd.ts(timername)
 
 **timerend(timername)**
 Stop measuring execution for particular timer, indicated by 'timername' (see debugduck.html for example)
+
 Alias: dd.te(timername)
 
 Because of its special purpose, timer() and timerend() can not be piped or styled.
@@ -180,15 +183,44 @@ Assertions can be piped as any other DebuckDuck's methods:
 
 ```
 
+Counter
+=======
+
+You can use **count(counterName)** method to count eg. function calls:
+
+```javascript
+	
+	function fn() {
+		// do something
+		dd.count("fn() called");
+	}
+	
+	for (var i = 0; i < 10; i++) {
+		fn();
+	}
+	
+	// result:
+	// fn() called: 1 
+    // ...
+    // fn() called: 9 
+    // fn() called: 10 
+```
+
+count() can be piped.
+
+Alias: dd.c(counterName);
+
+
+
 Clearing the console
 ====================
 
-If you'd like to clear the console, you can use **clear()** method or its alias dd.c().
+If you'd like to clear the console, you can use **clear()** method or its alias dd.clr().
 
 clear() is also piped:
 
 ```javascript
-    dd.c().sp("Is it clear? ").p("Console cleared");
+    dd.clr().sp("Is it clear? ").p("Console cleared");
     
     /*
         result:
@@ -196,10 +228,14 @@ clear() is also piped:
     */
 ```
 
+Alias: dd.clr();
+
+
+
 Display dumped arrays in tables
 ===============================
 
-**table(object)**
+**table(Array)**
 
 Displays 'object' as table.
 
@@ -208,7 +244,7 @@ Alias: dd.t(Array)
 Display objects (formatted)
 ===========================
 
-**objectAsDir(object)**
+**objectAsDir(Object)**
 
 Displays Object using console.dir() if exists, instead uses console.log() with %O formatter.
 
