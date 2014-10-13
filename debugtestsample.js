@@ -1,5 +1,5 @@
 /* jshint indent:4 */
-/* global console */
+/* global DebugTest */
 
 /*
  DebugTestSample.js
