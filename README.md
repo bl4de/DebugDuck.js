@@ -1,6 +1,12 @@
 DebugDuck.js
 ============
 
+For **DebugTest.js** documentation see
+
+https://github.com/bl4de/DebugDuck.js/blob/master/DEBUGTEST.md
+
+---
+
 Simple wrapper for console object functions.
 Reference of 'console' - see:
 https://developers.google.com/chrome-developer-tools/docs/console
