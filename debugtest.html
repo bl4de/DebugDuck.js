@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>DebugTest playground</title>
+</head>
+
+<body>
+    <h4>Debug Test example usages</h4>
+    <p>Sample usages of DebugTest</p>
+    <script type="text/javascript" src="DebugTest.js"></script>
+
+
+    <script>
+        var testSuite = DebugTest.createTestSuite("Sample test suite");
+
+        var test1 = {
+                testName: "Test one",
+                assertion: 1 == 1,
+                message: "Indeed, one equals one :P"
+            },
+            test2 = {
+                testName: "Test two",
+                assertion: "DebugTest".length > 10,
+                message: "Uh oh, DebugTest has more than 10 signs, surprising... :P"
+            };
+
+        testSuite.addTest(test1);
+        testSuite.addTest(test2);
+
+        testSuite.run();
+
+
+    </script>
+</body>
+
+</html>
