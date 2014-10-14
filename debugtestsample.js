@@ -28,9 +28,13 @@ var test1 = {
     };
 
 // add these tests to testSuite
-testSuite.addTest(test1);
-testSuite.addTest(test2);
+testSuite
+    .addTest(test1)
+    .addTest(test2);
 
+// alternative method of adding simple test - using delegated method createSimpleTest(name, assertion, message)
+
+testSuite.createSimpleTest("Another simple test", (10 % 3 === 1), "Yes, 10 modulo 3 equals 1");
 // run testSuite
 testSuite.run();
 
