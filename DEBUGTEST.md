@@ -11,7 +11,7 @@ https://github.com/bl4de/DebugDuck.js/blob/master/debugtest.html
 Usage
 =====
 
-1. Create test suite
+**Create test suite**
 
 ```javascript
 
@@ -20,7 +20,7 @@ var testSuite = DebugTest.createTestSuite("Sample test suite");
 
 ```
 
-2. Create unit tests
+**Create unit tests**
 
 ```javascript
 
@@ -38,7 +38,7 @@ testSuite.createSimpleTest("Another simple test", (10 % 3 === 1), "Yes, 10 modul
 
 ```
 
-3. Run test suite
+**Run test suite**
 
 ```javascript
 
@@ -46,7 +46,7 @@ testSuite.run();
 
 ```
 
-4. See output in console
+**See output in console**
 
 Sample output:
 
