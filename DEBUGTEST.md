@@ -30,6 +30,8 @@ var test1 = {
         assertion: 1 == 1,
         message: "Indeed, one equals one :P"
     };
+    
+testSuite.addTest(test1);
  
 // by method
 testSuite.createSimpleTest("Another simple test", (10 % 3 === 1), "Yes, 10 modulo 3 equals 1");
