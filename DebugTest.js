@@ -45,7 +45,7 @@
                 DebugTest.testSuite[__testSuiteName].push(__simpleTest);
             };
 
-            var init = function () {
+            var __init = function () {
                 DebugTest.testSuite[__testSuiteName] = [];
                 return this;
             };
@@ -130,7 +130,7 @@
                 }
             };
 
-            init();
+            __init();
             return this;
         }
     };

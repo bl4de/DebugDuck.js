@@ -41,12 +41,3 @@ testSuite.createSimpleTest("And yet another simple test", (12 + 12 === 25), "Uh,
 // run testSuite
 testSuite.run();
 
-/*
-output in console:
-
-Test one
-Indeed, one equals one :P
-Test two
-Assertion failed
-
-*/

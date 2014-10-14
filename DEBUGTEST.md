@@ -1,5 +1,5 @@
-DebugTest Documentation
-=======================
+DebugTest Doc
+=============
 
 **DebugTest.js** is simple library for creating simple tests and test suites with formatted, beautified output in console or in browser.
 
@@ -7,4 +7,46 @@ For sample usage run **debugtest.html** (via browser) or **debugtestsample.js** 
 
 https://github.com/bl4de/DebugDuck.js/blob/master/debugtest.html
 
+
+Usage
+=====
+
+1. Create test suite
+
+```javascript
+
+var testSuite = DebugTest.createTestSuite("Sample test suite");
+
+
+```
+
+2. Create unit tests
+
+```javascript
+
+// as objects
+var test1 = {
+        testName: "Test one",
+        assertion: 1 == 1,
+        message: "Indeed, one equals one :P"
+    };
+ 
+// by method
+testSuite.createSimpleTest("Another simple test", (10 % 3 === 1), "Yes, 10 modulo 3 equals 1");
+
+```
+
+3. Run test suite
+
+```javascript
+
+testSuite.run();
+
+```
+
+4. See output in console
+
+Sample output:
+
+https://www.dropbox.com/s/6a9asm3bbyjh4ex/debugtest_sample_output.png?dl=0
 
