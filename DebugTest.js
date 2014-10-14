@@ -73,9 +73,12 @@
             this.run = function () {
                 if (DebugTest.testSuite[__testSuiteName] && DebugTest.testSuite[__testSuiteName].length > 0) {
                     var _total = DebugTest.testSuite[__testSuiteName].length,
+                        i,
                         _passed = 0,
+                        _passedBar = "",
                         _passedPercentage = 0,
                         _failed = 0,
+                        _failedBar = "",
                         _failedPercentage = 0;
 
                     console.log("%c *** DebugTest test suite runner ***   ",
@@ -84,28 +87,46 @@
                         "font-weight:bold; background-color:#ddd; color:#111;");
                     DebugTest.testSuite[__testSuiteName].forEach(function (__test) {
                         if (__test.assertion === true) {
-                            console.log("%c" + " PASSED: " + "%c " + __test.message + "  (" + __test.testName + ")  ",
+                            console.log("%c" + " [+]   PASSED: " + "%c " + __test.message + "  (" + __test.testName + ")  ",
                                 "color:#fff; font-weight:bold; background-color:#206f20;",
                                 "color:#eee; background-color:#01aa01;");
                             _passed++;
                         } else {
-                            console.warn("%c" + " FAIL:  " + " %c Assertion failed  (" + __test.testName + ")  ",
+                            console.warn("%c" + " [-]   FAIL:   " + "%c " + __test.message + "  (" + __test.testName + ")  ",
                                 "color:#fff; font-weight:bold; background-color:#a01111;",
                                 "color:#eee; background-color:#f33;");
                             _failed++;
                         }
                     });
-                    console.log("%c ***       SUMMARY       *** ",
+                    console.log("%c ***           SUMMARY           *** ",
                         "font-weight:bold; background-color:#ddd; color:#111;");
 
-                    console.log("%c  total tests run: " + _total, "color:#222; font-weight:bold;");
+                    console.log("%c  total tests run: " + _total + "                 ",
+                        "background-color:#eee; color:#222; font-weight:bold;");
                     _passedPercentage = parseInt((_passed / _total) * 100, 10);
                     _failedPercentage = parseInt((_failed / _total) * 100, 10);
 
-                    console.log("%c  passed: " + _passed + " (" + _passedPercentage + "%)  ",
-                        "font-weight:normal; color:#206f20;");
-                    console.log("%c  failed: " + _failed + " (" + _failedPercentage + "%)  ",
-                        "font-weight:normal; color:#a01111;");
+                    for (i = 0; i < (10 - (_passedPercentage / 10)); i++) {
+                        _failedBar += "---";
+                    }
+
+                    i = 0;
+                    while (i < (10 - (_failedPercentage / 10))) {
+                        _passedBar += "+++";
+                        i++;
+                    }
+
+                    console.log("%c  " + _passedBar + "%c" + _failedBar + "     ",
+                        "font-weight:bold; background-color:#ddd; color:#206f20",
+                        "background-color:#ddd; font-weight:bold; color:#a01111;");
+                    console.log("%c  passed: " + _passed + " (" + _passedPercentage + "%)                    ",
+                        "background-color:#eee; font-weight:normal; color:#206f20;");
+                    console.log("%c  failed: " + _failed + " (" + _failedPercentage + "%)                    ",
+                        "background-color:#eee; font-weight:normal; color:#a01111;");
+
+                    console.log("%c *** DebugTest says: I'm done :P *** ",
+                        "font-weight:bold; background-color:#ddd; color:#111;");
+
                 }
             };
 

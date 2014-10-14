@@ -35,6 +35,9 @@ testSuite
 // alternative method of adding simple test - using delegated method createSimpleTest(name, assertion, message)
 
 testSuite.createSimpleTest("Another simple test", (10 % 3 === 1), "Yes, 10 modulo 3 equals 1");
+testSuite.createSimpleTest("Yet another simple test", (12 + 12 === 24), "Yes, 12 plus 12 equals 24, nothing surprising here :)");
+testSuite.createSimpleTest("And yet another simple test", (12 + 12 === 25), "Uh, oh, 12 plus 12 not equals 25? :/ ");
+
 // run testSuite
 testSuite.run();
 
