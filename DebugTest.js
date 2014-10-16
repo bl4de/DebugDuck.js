@@ -26,7 +26,6 @@
                 message: message to be displayed if assertion is true; otherwise default message 'Assertion failed'
                 }
         */
-        simpleTest: {},
 
         /*
          TestSuite
