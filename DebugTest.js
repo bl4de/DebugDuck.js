@@ -119,10 +119,6 @@
 						_failedBar = "",
 						_failedPercentage;
 
-					// empty line separator
-					console.log();
-
-
 					console.log("%c *** DebugTest test suite runner ***   ",
 						"font-weight:bold; background-color:#ddd; color:#111;");
 					console.log("%c *** " + __testSuiteName + " ***   ",
@@ -168,6 +164,10 @@
 
 					console.log("%c *** DebugTest says: I'm done :P *** ",
 						"font-weight:bold; background-color:#ddd; color:#111;");
+
+					// empty line separator
+					console.log(" ");
+					console.log(" ");
 
 				}
 			};
