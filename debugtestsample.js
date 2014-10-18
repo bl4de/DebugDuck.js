@@ -41,3 +41,30 @@ testSuite.createSimpleTest("And yet another simple test", (12 + 12 === 25), "Uh,
 // run testSuite
 testSuite.run();
 
+
+// simple function for test test :P
+function someFuncToTest(x,y) {
+	return x + y;
+}
+
+
+
+//initTestSuite(testSuiteObj)
+var newtest = {
+	testSuiteName: "Another test suite",
+	tests: [
+		{
+			testName: "Some new test",
+			assertion: "Audi".length === 4,
+			message: "Four rings, four letters :P"
+		},
+		{
+			testName: "Yet another test",
+			assertion: someFuncToTest(10,20) === 30,
+			message: "someFuncToTest() works well, as expected, just perfect :)"
+		}
+
+	]
+};
+
+DebugTest.initTestSuite(newtest);
