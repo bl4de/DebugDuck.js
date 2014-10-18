@@ -8,8 +8,8 @@ For sample usage run **debugtest.html** (via browser) or **debugtestsample.js** 
 https://github.com/bl4de/DebugDuck.js/blob/master/debugtest.html
 
 
-Usage
-=====
+Standard usage
+==============
 
 **Create test suite**
 
@@ -45,6 +45,45 @@ testSuite.createSimpleTest("Another simple test", (10 % 3 === 1), "Yes, 10 modul
 testSuite.run();
 
 ```
+
+Create and run the whole tests just in one JSON
+===============================================
+
+You can also create the whole test suite as one JSON object:
+
+```javascript
+
+var newtest = {
+	testSuiteName: "Another test suite",
+	tests: [
+		{
+			testName: "Some new test",
+			assertion: "Audi".length === 4,
+			message: "Four rings, four letters :P"
+		},
+		{
+			testName: "Yet another test",
+			assertion: someFuncToTest(10,20) === 30,
+			message: "someFuncToTest() works well, as expected, just perfect :)"
+		}
+
+	]
+};
+
+```
+
+Now, it is only one step to create and run test suite:
+
+```javascript
+
+DebugTest.initTestSuite(newtest);
+
+
+```
+
+
+Output
+======
 
 **See output in console**
 
