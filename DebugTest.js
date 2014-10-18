@@ -119,6 +119,10 @@
 						_failedBar = "",
 						_failedPercentage;
 
+					// empty line separator
+					console.log();
+
+
 					console.log("%c *** DebugTest test suite runner ***   ",
 						"font-weight:bold; background-color:#ddd; color:#111;");
 					console.log("%c *** " + __testSuiteName + " ***   ",
