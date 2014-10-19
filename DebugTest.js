@@ -157,9 +157,11 @@
 					console.log("%c  " + _passedBar + "%c" + _failedBar + "     ",
 						"font-weight:bold; background-color:#ddd; color:#206f20",
 						"background-color:#ddd; font-weight:bold; color:#a01111;");
-					console.log("%c  passed: " + _passed + " (" + _passedPercentage + "%)                    ",
+					console.log("%c  passed: " + _passed + " (" + _passedPercentage +
+						"%)                  " + ((_passedPercentage > 99) ? " " : (_passedPercentage < 10) ? "   " : "  "),
 						"background-color:#eee; font-weight:normal; color:#206f20;");
-					console.log("%c  failed: " + _failed + " (" + _failedPercentage + "%)                    ",
+					console.log("%c  failed: " + _failed + " (" + _failedPercentage +
+						"%)                  " + ((_failedPercentage > 99) ? " " : (_failedPercentage < 10) ? "   " : "  "),
 						"background-color:#eee; font-weight:normal; color:#a01111;");
 
 					console.log("%c *** DebugTest says: I'm done :P *** ",
