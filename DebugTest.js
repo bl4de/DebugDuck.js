@@ -16,11 +16,6 @@
 
 	var DebugTest = {
 
-		//__print: function() {
-		//	console.log.apply(console.log, arguments);
-		//},
-
-
 		testSuite: {},
 
 		/*
