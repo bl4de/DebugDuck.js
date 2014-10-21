@@ -16,6 +16,11 @@
 
 	var DebugTest = {
 
+		//__print: function() {
+		//	console.log.apply(console.log, arguments);
+		//},
+
+
 		testSuite: {},
 
 		/*
@@ -109,15 +114,19 @@
 
 			// run test suite
 			this.run = function () {
+				var _total,
+					i,
+					_passed = 0,
+					_passedBar = "",
+					_passedPercentage,
+					_failed = 0,
+					_failedBar = "",
+					_failedPercentage;
+
+				_total = DebugTest.testSuite[__testSuiteName].length;
+
 				if (DebugTest.testSuite[__testSuiteName] && DebugTest.testSuite[__testSuiteName].length > 0) {
-					var _total = DebugTest.testSuite[__testSuiteName].length,
-						i,
-						_passed = 0,
-						_passedBar = "",
-						_passedPercentage,
-						_failed = 0,
-						_failedBar = "",
-						_failedPercentage;
+
 
 					console.log("%c *** DebugTest test suite runner ***   ",
 						"font-weight:bold; background-color:#ddd; color:#111;");
