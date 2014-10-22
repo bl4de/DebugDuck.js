@@ -111,7 +111,6 @@
 			this.run = function () {
 				var _total,
 					i,
-					j,
 					_passed = 0,
 					_passedBar = "",
 					_passedPercentage,
