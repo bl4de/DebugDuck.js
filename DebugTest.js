@@ -111,6 +111,7 @@
 			this.run = function () {
 				var _total,
 					i,
+					j,
 					_passed = 0,
 					_passedBar = "",
 					_passedPercentage,
@@ -152,8 +153,7 @@
 						_failedBar += "---";
 					}
 
-					i = 0;
-					while (i < (10 - (_failedPercentage / 10))) {
+					while (i < 10) {
 						_passedBar += "+++";
 						i++;
 					}
