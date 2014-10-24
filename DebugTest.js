@@ -14,7 +14,11 @@
 (function (g) {
 	"use strict";
 
+
 	var DebugTest = {
+
+		// constants
+		DT_LINE_LENGTH: 100,
 
 		testSuite: {},
 
@@ -74,7 +78,8 @@
 
 		 */
 		createTestSuite: function (testSuiteName) {
-			var __testSuiteName = testSuiteName || "DebugTest test suite";
+			var __testSuiteName = testSuiteName || "DebugTest test suite",
+				_lineLength = DebugTest.DT_LINE_LENGTH;
 
 			/*
 			 __simpleTest - instance of DebugTest.simpleTest
@@ -87,6 +92,17 @@
 				DebugTest.testSuite[__testSuiteName] = [];
 				return this;
 			};
+
+			// prints line in console, with fixed length
+			this.__print = function (__str, __format) {
+				var _strLength = __str.length,
+					_padding = " ".repeat(_lineLength - _strLength);
+
+
+				__str = __str + _padding;
+				console.log(__str, __format);
+			};
+
 
 			// public interface
 
@@ -122,11 +138,10 @@
 
 				if (DebugTest.testSuite[__testSuiteName] && DebugTest.testSuite[__testSuiteName].length > 0) {
 
-
-					console.log("%c *** DebugTest test suite runner ***   ",
-						"font-weight:bold; background-color:#ddd; color:#111;");
-					console.log("%c *** " + __testSuiteName + " ***   ",
-						"font-weight:bold; background-color:#ddd; color:#111;");
+					this.__print("%c *** DebugTest test suite runner ***   ", "font-weight:bold; background-color:#ddd; color:#111;");
+					this.__print("%c *** " + __testSuiteName + " ***   ", "font-weight:bold; background-color:#ddd; color:#111;")
+					//console.log("%c *** " + __testSuiteName + " ***   ",
+					//	);
 					DebugTest.testSuite[__testSuiteName].forEach(function (__test) {
 						if (__test.assertion === true) {
 							console.log("%c" + " [+]   PASSED: " + "%c " + __test.message + "  (" + __test.testName + ")  ",
