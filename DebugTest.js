@@ -18,7 +18,7 @@
 	var DebugTest = {
 
 		// constants
-		DT_LINE_LENGTH: 100,
+		DT_LINE_LENGTH: 110,
 
 		testSuite: {},
 
@@ -95,8 +95,8 @@
 
 			// prints line in console, with fixed length
 			this.__print = function (__str, __format, __format2) {
-				var _strLength = __str.length,
-					_padding = " ".repeat(_lineLength - _strLength);
+				var _strLength = (__format2) ? __str.length - 2 : __str.length,
+					_padding = (_strLength < _lineLength) ? " ".repeat(_lineLength - _strLength) : "";
 
 
 				__str = __str + _padding;
