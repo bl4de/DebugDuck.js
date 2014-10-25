@@ -94,13 +94,17 @@
 			};
 
 			// prints line in console, with fixed length
-			this.__print = function (__str, __format) {
+			this.__print = function (__str, __format, __format2) {
 				var _strLength = __str.length,
 					_padding = " ".repeat(_lineLength - _strLength);
 
 
 				__str = __str + _padding;
-				console.log(__str, __format);
+				if (__format2) {
+					console.log(__str, __format, __format2);
+				} else {
+					console.log(__str, __format);
+				}
 			};
 
 
@@ -125,7 +129,8 @@
 
 			// run test suite
 			this.run = function () {
-				var _total,
+				var _self = this,
+					_total,
 					i,
 					_passed = 0,
 					_passedBar = "",
@@ -140,28 +145,25 @@
 
 					this.__print("%c *** DebugTest test suite runner ***   ", "font-weight:bold; background-color:#ddd; color:#111;");
 					this.__print("%c *** " + __testSuiteName + " ***   ", "font-weight:bold; background-color:#ddd; color:#111;")
-					//console.log("%c *** " + __testSuiteName + " ***   ",
-					//	);
+
 					DebugTest.testSuite[__testSuiteName].forEach(function (__test) {
 						if (__test.assertion === true) {
-							console.log("%c" + " [+]   PASSED: " + "%c " + __test.message + "  (" + __test.testName + ")  ",
+							_self.__print("%c" + " [+]   PASSED: " + "%c " + __test.message + "  (" + __test.testName + ")  ",
 								"color:#fff; font-weight:bold; background-color:#206f20;",
 								"color:#eee; background-color:#01aa01;");
 							_passed++;
 						} else {
-							console.warn("%c" + " [-]   FAIL:   " + "%c " + __test.message + "  (" + __test.testName + ")  ",
+							_self.__print("%c" + " [-]   FAIL:   " + "%c " + __test.message + "  (" + __test.testName + ")  ",
 								"color:#fff; font-weight:bold; background-color:#a01111;",
 								"color:#eee; background-color:#f33;");
 							_failed++;
 						}
 					});
-					console.log("%c ***           SUMMARY           *** ",
-						"font-weight:bold; background-color:#ddd; color:#111;");
+					this.__print("%c ***           SUMMARY           *** ", "font-weight:bold; background-color:#ddd; color:#111;");
 
-					console.log("%c  total tests run: " + _total + "                 ",
-						"background-color:#eee; color:#222; font-weight:bold;");
 					_passedPercentage = parseInt((_passed / _total) * 100, 10);
 					_failedPercentage = parseInt((_failed / _total) * 100, 10);
+					this.__print("%c  total tests run: " + _total + "                 ", "background-color:#eee; color:#222; font-weight:bold;");
 
 					for (i = 0; i < (10 - (_passedPercentage / 10)); i++) {
 						_failedBar += "---";
@@ -172,18 +174,17 @@
 						i++;
 					}
 
-					console.log("%c  " + _passedBar + "%c" + _failedBar + "     ",
+					this.__print("%c  " + _passedBar + "%c" + _failedBar + "     ",
 						"font-weight:bold; background-color:#ddd; color:#206f20",
 						"background-color:#ddd; font-weight:bold; color:#a01111;");
-					console.log("%c  passed: " + _passed + " (" + _passedPercentage +
+					this.__print("%c  passed: " + _passed + " (" + _passedPercentage +
 						"%)                  " + ((_passedPercentage > 99) ? " " : (_passedPercentage < 10) ? "   " : "  "),
 						"background-color:#eee; font-weight:normal; color:#206f20;");
-					console.log("%c  failed: " + _failed + " (" + _failedPercentage +
+					this.__print("%c  failed: " + _failed + " (" + _failedPercentage +
 						"%)                  " + ((_failedPercentage > 99) ? " " : (_failedPercentage < 10) ? "   " : "  "),
 						"background-color:#eee; font-weight:normal; color:#a01111;");
 
-					console.log("%c *** DebugTest says: I'm done :P *** ",
-						"font-weight:bold; background-color:#ddd; color:#111;");
+					this.__print("%c *** DebugTest says: I'm done :P *** ", "font-weight:bold; background-color:#ddd; color:#111;");
 
 					// empty line separator
 					console.log(" ");
