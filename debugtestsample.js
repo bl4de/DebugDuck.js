@@ -51,19 +51,43 @@ function someFuncToTest(x,y) {
 
 //initTestSuite(testSuiteObj)
 var newtest = {
-	testSuiteName: "Another test suite",
+	testSuiteName: "Car brands name lenght",
 	tests: [
 		{
-			testName: "Some new test",
+			testName: "Audi",
 			assertion: "Audi".length === 4,
-			message: "Four rings, four letters :P"
+			message: "Audi"
 		},
-		{
-			testName: "Yet another test",
-			assertion: someFuncToTest(10,20) === 30,
-			message: "someFuncToTest() works well, as expected, just perfect :)"
-		}
-
+        {
+            testName: "BMW",
+            assertion: "BMW".length === 2,
+            message: "BMW"
+        },
+        {
+            testName: "Aston Martin",
+            assertion: "Aston Martin".length === 12,
+            message: "Aston Martin"
+        },
+        {
+            testName: "Ferrari",
+            assertion: "Ferrari".length === 7,
+            message: "Ferrari"
+        },
+        {
+            testName: "Maserati",
+            assertion: "Maserati".length === 8,
+            message: "Maserati"
+        },
+        {
+            testName: "Ford",
+            assertion: "Ford".length === 4,
+            message: "Ford"
+        },
+        {
+            testName: "Opel",
+            assertion: "Opel".length === 5,
+            message: "Opel"
+        }
 	]
 };
 
