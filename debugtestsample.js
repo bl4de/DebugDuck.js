@@ -87,6 +87,11 @@ var newtest = {
             testName: "Opel",
             assertion: "Opel".length === 5,
             message: "Opel"
+        },
+        {
+            testName: "Function",
+            assertion: someFuncToTest(10,20) === 33,
+            message: "10 + 20 = 33? :P"
         }
 	]
 };
