@@ -89,6 +89,4 @@ Output
 
 Sample output:
 
-https://www.dropbox.com/s/6a9asm3bbyjh4ex/debugtest_sample_output.png?dl=0
-https://www.dropbox.com/s/b5ki4fzewq4yhcr/debugduck_output.png?dl=0
-
+https://www.dropbox.com/s/6jc0y4zp8wa1y2m/debugtest_pretty_output.png?dl=0
