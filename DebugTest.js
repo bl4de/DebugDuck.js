@@ -144,7 +144,7 @@
 				if (DebugTest.testSuite[__testSuiteName] && DebugTest.testSuite[__testSuiteName].length > 0) {
 
 					this.__print("%c *** DebugTest test suite runner ***   ", "font-weight:bold; background-color:#ddd; color:#111; border-top:2px solid #444;border-bottom:4px solid #ddd;");
-					this.__print("%c *** " + __testSuiteName + " ***   ", "font-weight:bold; background-color:#ddd; color:#111;  border-bottom:4px solid #666;")
+					this.__print("%c *** " + __testSuiteName + " ***   ", "font-weight:bold; background-color:#ddd; color:#111;  border-bottom:4px solid #666;");
 
 					DebugTest.testSuite[__testSuiteName].forEach(function (__test) {
 						if (__test.assertion === true) {
