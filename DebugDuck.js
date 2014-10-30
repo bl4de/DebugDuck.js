@@ -32,7 +32,7 @@
                 types: {
                     "log": "log",
                     "warn": "warn",
-                    "Warrning": "warn",
+                    "warning": "warn",
                     "err": "error",
                     "error": "error"
                 },
@@ -216,7 +216,7 @@
                     console.table(obj);
                 },
 
-                objectAsDir: function(obj) {
+                objectAsDir: function (obj) {
                     // use console.dir() if exists
                     if (console.hasOwnProperty("dir")) {
                         console.dir(obj);
@@ -245,13 +245,13 @@
                     return this;
                 },
 
-	            // counter
-	            count: function(counterName) {
-		            if (console.count) {
-			            console.count(counterName);
-		            }
-		            return this;
-	            },
+                // counter
+                count: function (counterName) {
+                    if (console.count) {
+                        console.count(counterName);
+                    }
+                    return this;
+                },
 
 
                 // ########     Duck's inner methods   ###########
@@ -319,7 +319,7 @@
             DebugDuck.ts = DebugDuck.timestamp;
             DebugDuck.a = DebugDuck.assert;
             DebugDuck.clr = DebugDuck.clear;
-	        DebugDuck.c = DebugDuck.count;
+            DebugDuck.c = DebugDuck.count;
 
 
             // asigned to global as 'dd':
