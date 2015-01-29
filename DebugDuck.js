@@ -239,6 +239,22 @@
                     return this;
                 },
 
+                memoryDump: function () {
+                    var __memoryProp,
+                        __memoryPropName,
+                        __memoryPropKBValue,
+                        __memoryPropMBValue;
+                    if (console.hasOwnProperty("memory")) {
+                        this.setstyle("background-color:#1bad1b; font-weight:bold; color:#fff;");
+                        for (__memoryProp in console.memory) {
+                            __memoryPropKBValue = parseInt(console.memory[__memoryProp] / 1024, 10);
+                            __memoryPropMBValue = (__memoryPropKBValue > 1024) ? parseInt(__memoryPropKBValue / 1024, 10) : __memoryPropKBValue * 0.001024;
+                            __memoryPropName = __memoryProp.replace(/([A-Z]+)/g, " $&").replace(/js|JS/, "JavaScript ");
+                            this.__formatAndPrint(__memoryPropName + ': ' + __memoryPropKBValue + ' kB; ' + __memoryPropMBValue + ' MB');
+                        }
+                    }
+                },
+
                 // clearing the console
                 clear: function () {
                     console.clear();
@@ -320,6 +336,7 @@
             DebugDuck.a = DebugDuck.assert;
             DebugDuck.clr = DebugDuck.clear;
             DebugDuck.c = DebugDuck.count;
+            DebugDuck.m = DebugDuck.memoryDump;
 
 
             // asigned to global as 'dd':

@@ -139,6 +139,16 @@ Message is optional.
 
 Alias: dd.ts([message]);
 
+Memory information
+==================
+
+**memoryDump()**
+
+Prints information about current JavaScript heap size (limit, used and total)
+
+Alias: dd.m();
+
+
 
 Assertions (simple testing methods)
 ===================================
