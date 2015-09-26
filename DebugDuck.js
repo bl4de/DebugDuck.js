@@ -216,6 +216,10 @@
                     console.table(obj);
                 },
 
+                trace: function (fn) {
+                    console.trace(fn);
+                },
+
                 objectAsDir: function (obj) {
                     // use console.dir() if exists
                     if (console.hasOwnProperty("dir")) {
@@ -331,6 +335,7 @@
             DebugDuck.ts = DebugDuck.timer;
             DebugDuck.te = DebugDuck.timerend;
             DebugDuck.t = DebugDuck.table;
+            DebugDuck.tr = DebugDuck.trace;
             DebugDuck.d = DebugDuck.objectAsDir;
             DebugDuck.ts = DebugDuck.timestamp;
             DebugDuck.a = DebugDuck.assert;
