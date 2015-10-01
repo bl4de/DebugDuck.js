@@ -139,6 +139,27 @@ Message is optional.
 
 Alias: dd.ts([message]);
 
+
+Profiling
+=========
+
+There's an option to collect Profiler information sipmly by puttin start and finish checkpoints directly into the code.
+
+**profileStart(profileName)**
+
+Sets start poin of profile, with _profileName_ (optional)
+
+**profileEnd(profileName)**
+
+Sets finish point of profile. Finishes collecting data for profile with _profileName_ or last started profile, if _profileName_ is not passed into.
+
+Aliases:
+
+dd.ps([profileName]);
+
+dd.pe([profileName]);
+
+
 Memory information
 ==================
 
