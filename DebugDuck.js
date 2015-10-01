@@ -243,6 +243,16 @@
                     return this;
                 },
 
+
+                profileStart: function(profileName) {
+                    console.profile(profileName);
+                },
+
+
+                profileEnd: function(profileName) {
+                    console.profileEnd(profileName);
+                },
+
                 memoryDump: function () {
                     var __memoryProp,
                         __memoryPropName,
@@ -342,6 +352,8 @@
             DebugDuck.clr = DebugDuck.clear;
             DebugDuck.c = DebugDuck.count;
             DebugDuck.m = DebugDuck.memoryDump;
+            DebugDuck.ps = DebugDuck.profileStart;
+            DebugDuck.pe = DebugDuck.profileEnd;
 
 
             // asigned to global as 'dd':
