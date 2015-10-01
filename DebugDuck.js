@@ -55,6 +55,12 @@
                 // styles for output
                 style: {},
 
+                // last profile name
+                lastProfileName: "",
+
+                // profile names
+                profileNames: [],
+
                 // default background color
                 defBgColor: '#FFFF00',
 
@@ -245,12 +251,23 @@
 
 
                 profileStart: function(profileName) {
-                    console.profile(profileName);
+                    if (!profileName) {
+                        this.lastProfileName = "defaultProfile_" + this.profileNames.length;
+                    } else {
+                        this.lastProfileName = profileName;
+                    }
+                    this.profileNames.push(this.lastProfileName);
+                    console.profile(this.lastProfileName);
                 },
 
 
                 profileEnd: function(profileName) {
-                    console.profileEnd(profileName);
+                    if (profileName && this.profileNames.indexOf(profileName) > -1) {
+                        console.profileEnd(profileName);
+                        return;
+                    }
+                    console.profileEnd(this.profileNames[this.profileNames.length - 1]);
+                    this.profileNames.pop();
                 },
 
                 memoryDump: function () {
