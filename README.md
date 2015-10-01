@@ -260,7 +260,14 @@ Displays Object using console.dir() if exists, instead uses console.log() with %
 
 Alias: dd.d(Object)
 
+Watching function call stack
+============================
 
+**trace(fn_name)**
+
+Using trace(fn_name) you can display stack trace of fn_name() function.
+
+Alias: dd.tr(fn_name)
 
 
 
