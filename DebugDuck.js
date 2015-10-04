@@ -55,6 +55,12 @@
                 // styles for output
                 style: {},
 
+                // last profile name
+                lastProfileName: "",
+
+                // profile names
+                profileNames: [],
+
                 // default background color
                 defBgColor: '#FFFF00',
 
@@ -243,6 +249,27 @@
                     return this;
                 },
 
+
+                profileStart: function(profileName) {
+                    if (!profileName) {
+                        this.lastProfileName = "defaultProfile_" + this.profileNames.length;
+                    } else {
+                        this.lastProfileName = profileName;
+                    }
+                    this.profileNames.push(this.lastProfileName);
+                    console.profile(this.lastProfileName);
+                },
+
+
+                profileEnd: function(profileName) {
+                    if (profileName && this.profileNames.indexOf(profileName) > -1) {
+                        console.profileEnd(profileName);
+                        return;
+                    }
+                    console.profileEnd(this.profileNames[this.profileNames.length - 1]);
+                    this.profileNames.pop();
+                },
+
                 memoryDump: function () {
                     var __memoryProp,
                         __memoryPropName,
@@ -342,6 +369,8 @@
             DebugDuck.clr = DebugDuck.clear;
             DebugDuck.c = DebugDuck.count;
             DebugDuck.m = DebugDuck.memoryDump;
+            DebugDuck.ps = DebugDuck.profileStart;
+            DebugDuck.pe = DebugDuck.profileEnd;
 
 
             // asigned to global as 'dd':

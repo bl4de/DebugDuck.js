@@ -139,6 +139,27 @@ Message is optional.
 
 Alias: dd.ts([message]);
 
+
+Profiling
+=========
+
+There's an option to collect Profiler information sipmly by puttin start and finish checkpoints directly into the code.
+
+**profileStart(profileName)**
+
+Sets start poin of profile, with _profileName_ (optional)
+
+**profileEnd(profileName)**
+
+Sets finish point of profile. Finishes collecting data for profile with _profileName_ or last started profile, if _profileName_ is not passed into.
+
+Aliases:
+
+dd.ps([profileName]);
+
+dd.pe([profileName]);
+
+
 Memory information
 ==================
 
@@ -260,7 +281,14 @@ Displays Object using console.dir() if exists, instead uses console.log() with %
 
 Alias: dd.d(Object)
 
+Watching function call stack
+============================
 
+**trace(fn_name)**
+
+Using trace(fn_name) you can display stack trace of fn_name() function.
+
+Alias: dd.tr(fn_name)
 
 
 
