@@ -41,40 +41,64 @@
                     "error": "error"
                 },
 
-                // message for mosc functions
+                /**
+                 *  default DebugDuck output message
+                 */
                 message: "DebugDuck default message",
 
-                // array where vars are storing for DD window
+                /**
+                 * array where vars are storing for DD window
+                 */
                 vars: [],
 
-                // show/hide DD window? 
+                /**
+                 * show/hide DD window?
+                 */
                 showDDWindow: true,
 
-                //event listeneres
+                /**
+                 * events listener array
+                 */
                 events: [],
 
-                // prefix 
+                /**
+                 * prefix
+                 */
                 prefix: {},
 
-                // styles for output
+                /**
+                 * styles for output
+                 */
                 style: {},
 
-                // last profile name
+                /**
+                 * last profile name for console.profile()
+                 */
                 lastProfileName: "",
 
-                // profile names
+                /**
+                 * profile names for multiple profiles
+                 */
                 profileNames: [],
 
-                // default background color
+                /**
+                 * default output background color
+                 */
                 defBgColor: '#FFFF00',
 
-                // default text color
+                /**
+                 * default output color
+                 */
                 defColor: '#2E2E2E',
 
-                // 'DebugDuck says' style
+                /**
+                 * 'DebugDuck says' style
+                 */
                 ddStyle: 'background-color: #868A08; color: #fff; font-size:10px; border: 1px solid #868A08;',
 
-                // timer style:
+                /**
+                 * timer output style
+                 */
                 timerStyle: 'background-color: #fee; color: #111; font-size:10px; border: 1px solid #868A08;',
 
                 // ########     Duck's initialization   ###########
@@ -262,7 +286,7 @@
                 },
 
 
-                profileStart: function(profileName) {
+                profileStart: function (profileName) {
                     if (!profileName) {
                         this.lastProfileName = "defaultProfile_" + this.profileNames.length;
                     } else {
@@ -273,7 +297,7 @@
                 },
 
 
-                profileEnd: function(profileName) {
+                profileEnd: function (profileName) {
                     if (profileName && this.profileNames.indexOf(profileName) > -1) {
                         console.profileEnd(profileName);
                         return;
