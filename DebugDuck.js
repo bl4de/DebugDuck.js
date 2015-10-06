@@ -102,6 +102,13 @@
                 timerStyle: 'background-color: #fee; color: #111; font-size:10px; border: 1px solid #868A08;',
 
                 // ########     Duck's initialization   ###########
+
+                /**
+                 * initialization of DebugDuck global onject
+                 *
+                 * @param {object} global object
+                 * @private
+                 */
                 __init: function (g) {
                     if (g.document) {
                         // save references to interesting DOM objects :)
@@ -171,6 +178,13 @@
                 },
 
                 // ########     Event listener     ###########
+
+                /**
+                 * Attaches event callback
+                 *
+                 * @param {String} evt event name
+                 * @param {Function} callback
+                 */
                 attachEvent: function (evt, callback) {
                     this.events.push({
                         eventName: evt,
@@ -178,6 +192,11 @@
                     });
                 },
 
+                /**
+                 * Triggers event
+                 *
+                 * @param {String} evt event to trigger name
+                 */
                 triggerEvent: function (evt) {
                     this.events.forEach(function (e) {
                         if (e.eventName === evt) {
@@ -190,6 +209,7 @@
 
                 /**
                  * Set prefix for output string
+                 *
                  * @param {String} prefix
                  * @param {String} type
                  * @returns {DebugDuck} instance of DedugDuck
@@ -201,6 +221,7 @@
 
                 /**
                  * Set styles for output string
+                 *
                  * @param {String} style CSS string describes styles
                  * @param {String} type type of message (log, warn, error)
                  * @returns {DebugDuck} instance of DedugDuck
