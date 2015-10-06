@@ -231,9 +231,13 @@
                     return this;
                 },
 
-
-                // display variable value - wrapper for console.log()
-                // alias: dd.p(value)
+                /**
+                 * Diplays value of variable using defined formatting
+                 *
+                 * @param {String} value
+                 * @param {String} type
+                 * @returns {DebugDuck}
+                 */
                 printvar: function (value, type) {
                     this.vars.push({
                         value: value,
@@ -247,12 +251,22 @@
                     return this;
                 },
 
-                // grouping output
+                /**
+                 * Set start of group
+                 *
+                 * @param groupname
+                 * @returns {DebugDuck}
+                 */
                 group: function (groupname) {
                     console.group(groupname);
                     return this;
                 },
 
+                /**
+                 * Closes group display
+                 *
+                 * @returns {DebugDuck}
+                 */
                 groupend: function () {
                     console.groupEnd();
                     return this;
