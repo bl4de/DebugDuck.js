@@ -272,12 +272,23 @@
                     return this;
                 },
 
+                /**
+                 * Sets timestamp
+                 *
+                 * @param {String} __message
+                 * @returns {DebugDuck}
+                 */
                 timestamp: function (__message) {
                     var message = __message ? this.__setMessage(__message) : this.message;
                     console.timeStamp(message);
                     return this;
                 },
 
+                /**
+                 * Runs timer and marks it with timername
+                 *
+                 * @param {String} timername
+                 */
                 timer: function (timername) {
                     if (!timername) {
                         timername = "timer_" + Math.floor(Math.random(1000) * 1000);
@@ -285,10 +296,20 @@
                     console.time(timername);
                 },
 
+                /**
+                 * Finishes up timer named by timername
+                 *
+                 * @param {String} timername
+                 */
                 timerend: function (timername) {
                     console.timeEnd(timername);
                 },
 
+                /**
+                 * Displays OBject or Array as a atable
+                 *
+                 * @param {Object} obj
+                 */
                 table: function (obj) {
                     console.table(obj);
                 },
