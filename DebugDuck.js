@@ -314,10 +314,21 @@
                     console.table(obj);
                 },
 
+                /**
+                 * Enables function call stack trace
+                 *
+                 * @param {String} fn function name
+                 */
                 trace: function (fn) {
                     console.trace(fn);
                 },
 
+
+                /**
+                 * Displays object
+                 * @param {Object} obj
+                 * @returns {DebugDuck}
+                 */
                 objectAsDir: function (obj) {
                     // use console.dir() if exists
                     if (console.hasOwnProperty("dir")) {
@@ -329,7 +340,12 @@
                     return this;
                 },
 
-                // console.assert ?
+                /**
+                 * Assertion testing
+                 * @param exp
+                 * @param {String} message
+                 * @returns {DebugDuck}
+                 */
                 assert: function (exp, message) {
                     if (exp) {
                         this.setstyle("background-color:#1bad1b; font-weight:bold; color:#fff;");
@@ -342,6 +358,12 @@
                 },
 
 
+                /**
+                 * Starts recording profile with profilename
+                 * Can be view in Profiles tab
+                 *
+                 * @param {String} profileName
+                 */
                 profileStart: function (profileName) {
                     if (!profileName) {
                         this.lastProfileName = "defaultProfile_" + this.profileNames.length;
@@ -353,6 +375,11 @@
                 },
 
 
+                /**
+                 * Ends up recording profile with profilename
+                 *
+                 * @param profileName
+                 */
                 profileEnd: function (profileName) {
                     if (profileName && this.profileNames.indexOf(profileName) > -1) {
                         console.profileEnd(profileName);
@@ -362,6 +389,10 @@
                     this.profileNames.pop();
                 },
 
+
+                /**
+                 * Prints information about current memory used by JavaScript
+                 */
                 memoryDump: function () {
                     var __memoryProp,
                         __memoryPropName,
