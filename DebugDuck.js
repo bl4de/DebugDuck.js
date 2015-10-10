@@ -409,13 +409,23 @@
                     }
                 },
 
-                // clearing the console
+                /**
+                 * Clears the console window
+                 *
+                 * @returns {DebugDuck}
+                 */
                 clear: function () {
                     console.clear();
                     return this;
                 },
 
-                // counter
+
+                /**
+                 * Handles counter with countername
+                 *
+                 * @param {String} counterName
+                 * @returns {DebugDuck}
+                 */
                 count: function (counterName) {
                     if (console.count) {
                         console.count(counterName);
