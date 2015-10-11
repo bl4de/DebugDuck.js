@@ -458,18 +458,39 @@
 
                 },
 
+
+                /**
+                 * Sets message to display
+                 *
+                 * @param {String} message
+                 * @private
+                 */
                 __setMessage: function (message) {
                     this.message = message || this.message;
                 },
 
-                // set timer for output
+
+                /**
+                 * Sets time for outupt message
+                 *
+                 * @returns {string}
+                 * @private
+                 */
                 __timer: function () {
                     var output = new Date();
 
                     return '\u238b ' + output.getHours() + ":" + output.getMinutes() + ":" + output.getSeconds() + "." + output.getMilliseconds();
                 },
 
-                // format output for console.log() using settings
+
+                /**
+                 * Applies styles and settings to outupt to console - main wrapper for console.log()
+                 *
+                 * @param {String} value
+                 * @param {String} type message type: log|warn|error
+                 *
+                 * @private
+                 */
                 __formatAndPrint: function (value, type) {
                     var __output = '',
                         __type = this.types[type] || "log";
