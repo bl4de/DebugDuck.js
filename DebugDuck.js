@@ -507,7 +507,10 @@
 
             };
 
-            // definitions of aliases
+            /**
+             * Public interface
+             * @type {DebugDuck.setstyle|Function}
+             */
             DebugDuck.ss = DebugDuck.setstyle;
             DebugDuck.sp = DebugDuck.setprefix;
             DebugDuck.p = DebugDuck.printvar;
