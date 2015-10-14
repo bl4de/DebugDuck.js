@@ -542,7 +542,7 @@
              */
             g.onerror = this.__onerror;
 
-            
+
             /**
              * Initialize DebuckDuck
              */
@@ -550,6 +550,8 @@
         }
 
     } catch (e) {
-        // e.message
+        if (e.message) {
+            console.error(e.message);
+        }
     }
 })(this);
