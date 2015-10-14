@@ -530,13 +530,22 @@
             DebugDuck.pe = DebugDuck.profileEnd;
 
 
-            // asigned to global as 'dd':
+            /**
+             * Assign DebuckDuck as global
+             * @type {{types: {log: string, warn: string, warning: string, err: string, error: string}, message: string, vars: Array, showDDWindow: boolean, events: Array, prefix: {}, style: {}, lastProfileName: string, profileNames: Array, defBgColor: string, defColor: string, ddStyle: string, timerStyle: string, __init: Function, attachEvent: Function, triggerEvent: Function, setprefix: Function, setstyle: Function, printvar: Function, group: Function, groupend: Function, timestamp: Function, timer: Function, timerend: Function, table: Function, trace: Function, objectAsDir: Function, assert: Function, profileStart: Function, profileEnd: Function, memoryDump: Function, clear: Function, count: Function, __onerror: Function, __setMessage: Function, __timer: Function, __formatAndPrint: Function}}
+             */
             g.dd = DebugDuck;
 
-            // custom call stack handler from Debug Duck
+            /**
+             * Override standard onerror call
+             * @type {DebugDuck.__onerror|Function}
+             */
             g.onerror = this.__onerror;
 
-            // call __init
+            
+            /**
+             * Initialize DebuckDuck
+             */
             DebugDuck.__init(g);
         }
 
