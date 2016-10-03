@@ -81,7 +81,7 @@
                 /**
                  * default output background color
                  */
-                defBgColor: "#FFFF00",
+                defBgColor: '#FFFF00',
 
                 /**
                  * default output color
@@ -109,7 +109,7 @@
                 __init: function (g) {
                     if (g.document) {
                         // save references to interesting DOM objects :)
-                        var _document = g.document,
+                        const _document = g.document,
                             _body = g.document.body,
                             __ddDiv = _document.createElement('div'),
                             __initialP = _document.createElement('p'),
@@ -139,9 +139,9 @@
                         this.render = function () {
                             // cleanup window first
                             // __ddDiv.removeChild(__varList);
-                            self.vars.forEach(function (v) {
+                            self.vars.forEach(v => {
                                 if (!v.rendered) {
-                                    var _varDiv = _document.createElement('div'),
+                                    const _varDiv = _document.createElement('div'),
                                         _varValue = _document.createTextNode(v.value);
 
                                     if (v.type === 'err') {
@@ -164,7 +164,6 @@
                             // toggle DD window visibility
                             self.showDDWindow = !self.showDDWindow;
                             self.__ddDiv.style.display = (self.showDDWindow === true) ? 'block' : 'none';
-
                         };
 
                         this.attachEvent('UPDATE_WINDOW', this.render);
@@ -276,7 +275,7 @@
                  * @returns {DebugDuck}
                  */
                 timestamp: function (__message) {
-                    var message = __message ? this.__setMessage(__message) : this.message;
+                    const message = __message ? this.__setMessage(__message) : this.message;
                     console.timeStamp(message);
                     return this;
                 },
@@ -391,7 +390,7 @@
                  * Prints information about current memory used by JavaScript
                  */
                 memoryDump: function () {
-                    var __memoryProp,
+                    let __memoryProp,
                         __memoryPropName,
                         __memoryPropKBValue,
                         __memoryPropMBValue;
@@ -474,7 +473,7 @@
                  * @private
                  */
                 __timer: function () {
-                    var output = new Date();
+                    const output = new Date();
 
                     return '\u238b ' + output.getHours() + ':' + output.getMinutes() + ':' + output.getSeconds() + '.' + output.getMilliseconds();
                 },
@@ -489,8 +488,8 @@
                  * @private
                  */
                 __formatAndPrint: function (value, type) {
-                    var __output = ',
-                        __type = this.types[type] || 'log';
+                    let __output = '',
+                    __type = this.types[type] || 'log';
 
                     if (this.prefix[__type]) {
                         __output = this.prefix[__type] + __output;
