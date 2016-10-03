@@ -1,17 +1,14 @@
-/* jshint indent:4 */
-/* global console */
-
 /**
  DebugDuck.js
 
  @description: simple console() global object wrapper to display debug output via console
- @author "Rafal 'bl4de' Janicki",
+ @author 'Rafal 'bl4de' Janicki',
  @created 24.12.2013
 
  The MIT License (see LICENCE file)
  */
 (function (g) {
-    "use strict";
+    'use strict'
 
     /**
      * DebugDuckException definition
@@ -20,31 +17,31 @@
      */
     function DebugDuckException(message) {
         this.message = message;
-        this.name = "DebugDuckException";
+        this.name = 'DebugDuckException';
     }
 
     try {
-        if (typeof g.console !== "object") {
-            throw new DebugDuckException("global.console not exists, DebugDuck made a boo :(");
+        if (typeof g.console !== 'object') {
+            throw new DebugDuckException('global.console not exists, DebugDuck made a boo :(');
         } else {
             // definition of DebugDuck object
-            var DebugDuck = {
+            const DebugDuck = {
 
                 // ########     Duck's intestines   ###########
 
                 // types of console messages
                 types: {
-                    "log": "log",
-                    "warn": "warn",
-                    "warning": "warn",
-                    "err": "error",
-                    "error": "error"
+                    'log': 'log',
+                    'warn': 'warn',
+                    'warning': 'warn',
+                    'err': 'error',
+                    'error': 'error'
                 },
 
                 /**
                  *  default DebugDuck output message
                  */
-                message: "DebugDuck default message",
+                message: 'DebugDuck default message',
 
                 /**
                  * array where vars are storing for DD window
@@ -74,7 +71,7 @@
                 /**
                  * last profile name for console.profile()
                  */
-                lastProfileName: "",
+                lastProfileName: '',
 
                 /**
                  * profile names for multiple profiles
@@ -84,7 +81,7 @@
                 /**
                  * default output background color
                  */
-                defBgColor: '#FFFF00',
+                defBgColor: "#FFFF00",
 
                 /**
                  * default output color
@@ -122,16 +119,16 @@
 
                         // sets styles for DD window
                         __ddDiv.style.display = (this.showDDWindow === true) ? 'block' : 'none';
-                        __ddDiv.style.width = "50%";
-                        __ddDiv.style.padding = "10px";
-                        __ddDiv.style.position = "absolute";
-                        __ddDiv.style.overflow = "auto";
-                        __ddDiv.style.top = "20px";
-                        __ddDiv.style.right = "20px";
-                        // __ddDiv.style.height = "25%";
-                        __ddDiv.style.border = "2px solid #f00";
-                        __ddDiv.style.borderRadius = "6px";
-                        __ddDiv.style.backgroundColor = "rgba(220,220,220,0.4)";
+                        __ddDiv.style.width = '50%';
+                        __ddDiv.style.padding = '10px';
+                        __ddDiv.style.position = 'absolute';
+                        __ddDiv.style.overflow = 'auto';
+                        __ddDiv.style.top = '20px';
+                        __ddDiv.style.right = '20px';
+                        // __ddDiv.style.height = '25%';
+                        __ddDiv.style.border = '2px solid #f00';
+                        __ddDiv.style.borderRadius = '6px';
+                        __ddDiv.style.backgroundColor = 'rgba(220,220,220,0.4)';
 
                         // adds DD window to DOM
                         _body.insertBefore(__ddDiv);
@@ -147,12 +144,12 @@
                                     var _varDiv = _document.createElement('div'),
                                         _varValue = _document.createTextNode(v.value);
 
-                                    if (v.type === "err") {
-                                        _varDiv.style.backgroundColor = "#f24";
+                                    if (v.type === 'err') {
+                                        _varDiv.style.backgroundColor = '#f24';
                                     }
 
-                                    if (v.type === "warn") {
-                                        _varDiv.style.backgroundColor = "#FF9933";
+                                    if (v.type === 'warn') {
+                                        _varDiv.style.backgroundColor = '#FF9933';
                                     }
 
                                     _varDiv.appendChild(_varValue);
@@ -173,7 +170,7 @@
                         this.attachEvent('UPDATE_WINDOW', this.render);
 
                     } else {
-                        this.printvar("'document' object doesn't exists, probably not a web browser?");
+                        this.printvar('"document" object does not exists, probably not a web browser?');
                     }
                 },
 
@@ -215,7 +212,7 @@
                  * @returns {DebugDuck} instance of DedugDuck
                  */
                 setprefix: function (prefix, type) {
-                    this.prefix[this.types[type] || "log"] = prefix;
+                    this.prefix[this.types[type] || 'log'] = prefix;
                     return this;
                 },
 
@@ -227,7 +224,7 @@
                  * @returns {DebugDuck} instance of DedugDuck
                  */
                 setstyle: function (style, type) {
-                    this.style[this.types[type] || "log"] = style || 'background-color: ' + this.defBgColor + '; color: ' + this.defColor;
+                    this.style[this.types[type] || 'log'] = style || 'background-color: ' + this.defBgColor + '; color: ' + this.defColor;
                     return this;
                 },
 
@@ -291,7 +288,7 @@
                  */
                 timer: function (timername) {
                     if (!timername) {
-                        timername = "timer_" + Math.floor(Math.random(1000) * 1000);
+                        timername = 'timer_' + Math.floor(Math.random(1000) * 1000);
                     }
                     console.time(timername);
                 },
@@ -331,12 +328,12 @@
                  */
                 objectAsDir: function (obj) {
                     // use console.dir() if exists
-                    if (console.hasOwnProperty("dir")) {
+                    if (console.hasOwnProperty('dir')) {
                         console.dir(obj);
                         return this;
                     }
                     // instead, try to format obj in console.log()
-                    console.log("%O", obj);
+                    console.log('%O', obj);
                     return this;
                 },
 
@@ -348,11 +345,11 @@
                  */
                 assert: function (exp, message) {
                     if (exp) {
-                        this.setstyle("background-color:#1bad1b; font-weight:bold; color:#fff;");
-                        this.__formatAndPrint("Assertion OK: [" + message + "]");
+                        this.setstyle('background-color:#1bad1b; font-weight:bold; color:#fff;');
+                        this.__formatAndPrint('Assertion OK: [' + message + ']');
                     } else {
-                        this.setstyle("background-color:#f00; font-weight:bold; color:#eee;");
-                        this.__formatAndPrint("Assertion FAILED: [" + message + "] NOT PASS");
+                        this.setstyle('background-color:#f00; font-weight:bold; color:#eee;');
+                        this.__formatAndPrint('Assertion FAILED: [' + message + '] NOT PASS');
                     }
                     return this;
                 },
@@ -366,7 +363,7 @@
                  */
                 profileStart: function (profileName) {
                     if (!profileName) {
-                        this.lastProfileName = "defaultProfile_" + this.profileNames.length;
+                        this.lastProfileName = 'defaultProfile_' + this.profileNames.length;
                     } else {
                         this.lastProfileName = profileName;
                     }
@@ -398,12 +395,12 @@
                         __memoryPropName,
                         __memoryPropKBValue,
                         __memoryPropMBValue;
-                    if (console.hasOwnProperty("memory")) {
-                        this.setstyle("background-color:#1bad1b; font-weight:bold; color:#fff;");
+                    if (console.hasOwnProperty('memory')) {
+                        this.setstyle('background-color:#1bad1b; font-weight:bold; color:#fff;');
                         for (__memoryProp in console.memory) {
                             __memoryPropKBValue = parseInt(console.memory[__memoryProp] / 1024, 10);
                             __memoryPropMBValue = (__memoryPropKBValue > 1024) ? parseInt(__memoryPropKBValue / 1024, 10) : __memoryPropKBValue * 0.001024;
-                            __memoryPropName = __memoryProp.replace(/([A-Z]+)/g, " $&").replace(/js|JS/, "JavaScript ");
+                            __memoryPropName = __memoryProp.replace(/([A-Z]+)/g, ' $&').replace(/js|JS/, 'JavaScript ');
                             this.__formatAndPrint(__memoryPropName + ': ' + __memoryPropKBValue + ' kB; ' + __memoryPropMBValue + ' MB');
                         }
                     }
@@ -440,21 +437,21 @@
                  custom call stack message
                  */
                 __onerror: function (message, file, line, col, error) {
-                    console.log("%c-------------------------------------------" +
-                        "-----------------------------------------------" +
-                        "-----------------------------------------------",
-                        "color: #f00;"); // empty line separator
+                    console.log('%c-------------------------------------------' +
+                        '-----------------------------------------------' +
+                        '-----------------------------------------------',
+                        'color: #f00;'); // empty line separator
 
-                    console.log("%c  " + message + "  ", "background-color:#ef2d2d; font-weight:bold; color:#fff;");
-                    console.log("%c" + "at " + file + " in line " + line + "; column " + col,
-                        "bakcground-color:#ef2d2d; font-weight:bold; color: #f00;");
-                    console.log("%c STACK TRACE:", "font-weight: bold; background-color: #fff46d;");
-                    console.log("%c" + error.stack,
-                        "background-color: #fff46d; font-weight:normal; color: #f00;");
-                    console.log("%c-------------------------------------------" +
-                        "-----------------------------------------------" +
-                        "-----------------------------------------------",
-                        "color: #f00;"); // empty line separator
+                    console.log('%c  ' + message + '  ', 'background-color:#ef2d2d; font-weight:bold; color:#fff;');
+                    console.log('%c' + 'at ' + file + ' in line ' + line + '; column ' + col,
+                        'bakcground-color:#ef2d2d; font-weight:bold; color: #f00;');
+                    console.log('%c STACK TRACE:', 'font-weight: bold; background-color: #fff46d;');
+                    console.log('%c' + error.stack,
+                        'background-color: #fff46d; font-weight:normal; color: #f00;');
+                    console.log('%c-------------------------------------------' +
+                        '-----------------------------------------------' +
+                        '-----------------------------------------------',
+                        'color: #f00;'); // empty line separator
 
                 },
 
@@ -479,7 +476,7 @@
                 __timer: function () {
                     var output = new Date();
 
-                    return '\u238b ' + output.getHours() + ":" + output.getMinutes() + ":" + output.getSeconds() + "." + output.getMilliseconds();
+                    return '\u238b ' + output.getHours() + ':' + output.getMinutes() + ':' + output.getSeconds() + '.' + output.getMilliseconds();
                 },
 
 
@@ -492,15 +489,15 @@
                  * @private
                  */
                 __formatAndPrint: function (value, type) {
-                    var __output = '',
-                        __type = this.types[type] || "log";
+                    var __output = ',
+                        __type = this.types[type] || 'log';
 
                     if (this.prefix[__type]) {
                         __output = this.prefix[__type] + __output;
                     }
 
                     __output += ' ' + value;
-                    console[__type]("%c" + this.__timer() + "%c DebugDuck says:%c " + __output + " ",
+                    console[__type]('%c' + this.__timer() + '%c DebugDuck says:%c ' + __output + ' ',
                         this.timerStyle, this.ddStyle, this.style[__type]);
                 }
 
