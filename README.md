@@ -28,9 +28,6 @@ DebugDuck.js also implements its own **window.onerror()** handler for more reada
 Usage
 =====
 
-See https://www.dropbox.com/s/v1smbyqyrd2obz0/debugduck_new.png for example outputs.
-
-
 Basic methods
 -------------
 
